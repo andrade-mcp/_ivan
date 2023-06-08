@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -15,44 +16,41 @@
         <!--== bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!--== fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="fonts/family=Quicksand" rel="stylesheet">
+
         <!--== odometer -->
         <link href="css/odometer.css" rel="stylesheet" type="text/css" />
         <!--== spacing -->
         <link href="css/spacing.css" rel="stylesheet" type="text/css" />
         <!--== theme.min -->
         <link href="css/theme.min.css" rel="stylesheet" />
+    
         <script>
-            //utm
-            window.onload = function () {
-                var links = document.getElementsByTagName("a");
-                for (var i = 0, n = links.length; i < n; i++) {
-                    var href = links[i].href.trim() +
-                            (links[i].href.indexOf("?") > 0 ? '&' : '?') +
-                            document.location.search.replace('?', '').toString();
-                    links[i].href = href;
+            //Query Form
+            var queryForm = function(settings){
+              var reset = settings && settings.reset ? settings.reset : false;
+              var self = window.location.toString();
+              var querystring = self.split("?");
+              if (querystring.length > 1) {
+                var pairs = querystring[1].split("&");
+                for (i in pairs) {
+                  var keyval = pairs[i].split("=");
+                  if (reset || sessionStorage.getItem(keyval[0]) === null) {
+                    sessionStorage.setItem(keyval[0], decodeURIComponent(keyval[1]));
+                  }
                 }
-            }
-        </script>
+              }
+              var hiddenFields = document.querySelectorAll("input[type=hidden], input[type=text]");
+              for (var i=0; i<hiddenFields.length; i++) {
+                var param = sessionStorage.getItem(hiddenFields[i].name);
+                if (param) document.getElementsByName(hiddenFields[i].name)[0].value = param;
+              }
+            }          
+            setTimeout(function(){queryForm();}, 3000);
+        </script>        
         <script>
-            var urlParams;
-            (window.onpopstate = function () {
-                var match,
-                    pl     = /\+/g,
-                    search = /([^&=]+)=?([^&]*)/g,
-                    decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-                    query  = window.location.search.substring(1);
-            
-                urlParams = {};
-                while (match = search.exec(query))
-                urlParams[decode(match[1])] = decode(match[2]);
-            })();
-
-            const telefone1 = urlParams["telefone"];
-
             document.addEventListener('DOMContentLoaded', function () {
-                
-               const telefoneInput = document.getElementById('telefone');
+               const telefoneInput = document.getElementById('telefone');+6000
                const duracao = 216000; // Duração da barra de progresso em milissegundos (300000 ms = 5 minutos)
                const barraProgresso = document.getElementById('barra-progresso');
                const temporizador = document.getElementById('temporizador');
@@ -152,64 +150,6 @@
 
             
         </script>
-                <!-- inject css end -->
-        <link rel="prerender" href="https://scripts.converteai.net/f51f39a5-ab55-4310-9511-86685009878b/players/638128e14fa25a000c15c9a4/embed.html">
-        <link rel="preload" href="https://scripts.converteai.net/f51f39a5-ab55-4310-9511-86685009878b/players/638128e14fa25a000c15c9a4/player.js" as="script">
-        <link rel="preload" href="https://cdn.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js" as="script">
-        <link rel="preload" href="https://images.converteai.net/f51f39a5-ab55-4310-9511-86685009878b/players/638128e14fa25a000c15c9a4/thumbnail.jpg" as="image">
-        <link rel="preload" href="https://cdn.converteai.net/f51f39a5-ab55-4310-9511-86685009878b/638128d34f096d000a74058d/playlist.m3u8" as="fetch">
-        <link rel="dns-prefetch" href="https://cdn.converteai.net">
-        <link rel="dns-prefetch" href="https://scripts.converteai.net">
-        <link rel="dns-prefetch" href="https://images.converteai.net">
-        <link rel="dns-prefetch" href="https://api.vturb.com.br">
-        <link rel="preload" href="https://scripts.converteai.net/ec9f9b0a-a26e-41f4-b0eb-81002408c15e/players/6478b6a465ce7000094b8609/player.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js" as="script">
-<link rel="preload" href="https://images.converteai.net/ec9f9b0a-a26e-41f4-b0eb-81002408c15e/players/6478b6a465ce7000094b8609/thumbnail.jpg" as="image">
-<link rel="preload" href="https://cdn.converteai.net/ec9f9b0a-a26e-41f4-b0eb-81002408c15e/6478b684f218ab00097d2f5c/main.m3u8" as="fetch">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://api.vturb.com.br">
-<!-- Meta Pixel Code -->
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '934208887811619');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=934208887811619&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-
-        <script>
-            if (document.addEventListener) {
-                document.addEventListener("keydown", bloquearSource);
-            } else { //Versões antigas do IE
-                document.attachEvent("onkeydown", bloquearSource);
-            }
-            function bloquearSource(e) {
-                e = e || window.event;
-                var code = e.which || e.keyCode;
-                if (
-                    e.ctrlKey &&
-                    (code == 83 || code == 85) //83 = S, 85 = U
-                ) {
-                    if (e.preventDefault) {
-                        e.preventDefault();
-                    } else {
-                        e.returnValue = false;
-                    }
-                    return false;
-                }
-            }
-        </script>
                 <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -225,7 +165,7 @@
             </div>
         </div>
         
-        <div class="video-topo  d-none">
+        <div class="video-topo ">
             <div class="container">
                 <div class="row align-items-center">
                     <h1><b style="background: none;">ANTES DE ACESSAR O APLICATIVO VEJA COMO VAI FUNCIONAR:</b></h1>
@@ -245,10 +185,16 @@
                     </div>
                     <div class="informacoes">
                         <p><span style="vertical-align: inherit;">DESCUBRA AQUI OS SEGREDOS</span></p>
-                        <form id="meu-formulario" action="https://almaphysio.online/" method="post" >
-                            <input type="hidden"  name="clicou" value="1">
+						
+                        <form id="meu-formulario" name="meu-formulario" action="/vsl" method="GET">
+                            <input type="hidden" name="ref" value="">
                             <div class="form-group ">
+                                <input type="hidden" name="utm_source" value="">
+                                <input type="hidden" name="utm_medium" value="">
+                                <input type="hidden" name="utm_campaign" value="">
+                                <input type="hidden" name="utm_content" value="">
                                 <input type="text" class="form-control text-left input-telefone" id="telefone" placeholder="Ex. (11) 99123-1234" maxlength="15" name="telefone" required>
+                                <input type="hidden"  name="clicou" value="1">							
                             </div>
                             <div class="form-group">
                                 <div class="form-check">
@@ -260,26 +206,22 @@
                             </div>
                             <button type="submit" id="meu-botao-submit" class="btn btn-primary submit-telefone">CLIQUE AQUI PARA BUSCAR AS MENSAGENS</button>
                         </form>
+						
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="video-topo ">
+        </div>        
+        <div class="video-topo  d-none">
             <div class="container">
                 <div class="row align-items-center">
-                
-				<div id="vid_6472ccaa65ce7000094b5799" style="position:relative;width:100%;padding: 56.25% 0 0;"><img id="thumb_6472ccaa65ce7000094b5799" src="https://images.converteai.net/8e35f6d9-e493-4dc6-ada9-fb6f2848b7f1/players/6472ccaa65ce7000094b5799/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_6472ccaa65ce7000094b5799" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div><script type="text/javascript" id="scr_6472ccaa65ce7000094b5799">var s=document.createElement("script");s.src="https://scripts.converteai.net/8e35f6d9-e493-4dc6-ada9-fb6f2848b7f1/players/6472ccaa65ce7000094b5799/player.js",s.async=!0,document.head.appendChild(s);</script>
-				
-				<div class="botao-eu-quero">
-                
-				<p class="assista-ao-video">ASSISTA AO VÍDEO ENQUANTO AS CONVERSAS ESTÃO SENDO PROCESSADAS…</p>
+                                    <div class="botao-eu-quero">
+                        <p class="assista-ao-video">ASSISTA AO VÍDEO ENQUANTO AS CONVERSAS ESTÃO SENDO PROCESSADAS…</p>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="como-funciona ">
+        <div class="como-funciona  d-none">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-md-8 text-center">
@@ -293,12 +235,7 @@
                             </div>
                         </div>
                         <div id="mensagem-final" class="col-12 mensagem-final" style="display: none;">
-                            <p class="mt-3 foram-encontradas" >FORAM ENCONTRADAS <b>12 MENSAGENS</b> COMPROMETEDORAS NO NÚMERO <b>
-                            <span id="phone"></span>
-                            <script>
-                                document.getElementById('phone').innerHTML = telefone1;                                
-                            </script>
-                            </b></p>
+                            <p class="mt-3 foram-encontradas" >FORAM ENCONTRADAS <b>12 MENSAGENS</b> COMPROMETEDORAS NO NÚMERO <b>0</b></p>
                             <a href="#oferta" class="btn btn-success mt-5">QUERO VER AS MENSAGENS AGORA!</a>
                             <h2><b>PARA TER ACESSO AS MENSAGENS FINALIZE SEU CADASTRO, PAGANDO ESSA TAXA ÚNICA PARA MANTER NOSSO SERVIDOR FUNCIONANDO PERFEITAMENTE!</b></h2>
                         </div>
@@ -307,48 +244,14 @@
             </div>
         </div>
         <!--pricing start-->
-        <div class="print_whatsapp delay_elementos " id="oferta">
+        <div class="print_whatsapp delay_elementos  d-none" id="oferta">
             <img src="images/print-topo.jpeg" alt="imagem">
         </div>
-                <section class="position-relative overflow-hidden delay_elementos bg-white  elementos-pulsar" style="box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.59); color: #ff0000" >
-            <div class="container">
-                <div class="row align-items-center ">
-                    <div class="col-12">
-                        <div class="row align-items-center justify-content-center">
-                            <div class="col-12 col-lg-4 mb-8 mb-lg-0">
-                                <!-- Card -->
-                                <div class="card border-0 rounded-4" style="border-radius: 0% !important;">
-                                    <!-- Body -->
-                                    <div class="card-body py-2 px-2 text-center">
-                                        <div class="d-flex align-items-center text-center">
-                                        </div>
-                                        <h5 class="mb-0 " style=" text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.59); color: #ff0000;"><b>SOMENTE HOJE</b></h5>
-                                        <p class="mb-0 " style="text-decoration: line-through; font-size:25px; text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.59); color: #ff0000;">De <b>R$ 297,00</b></p>
-                                        <p class="mt-2 mb-0 " style="color:#00A116; text-align: left;">12x</p>
-                                        <!-- Price -->
-                                        <div class="d-flex justify-content-center text-dark text-center" style="color:#00A116 !important; text-shadow: 0px 0px 10px rgba(9.250769979841138, 171.74999999999997, 0.25669157608698, 0.64);">
-                                            <span class="price display-2 fw-bold" style="color:#00A116">
-                                            <span style="font-size: 25px; color:#00A116;"></span>14,74</span>                                         
-                                        </div>
-                                        <p class="mt-2 mb-0 " style="color:#00A116;">ou um único pagamento de <strong>R$147,00</strong></p>
-                                        <!-- Button -->
-                                        <a href="https://secure.doppus.com/pay/PBB0JH5MBB0JH5GZ880Z8" id="comprar" class="btn btn-success mt-5"> PAGAR AGORA</a>
-                                        <!-- Features -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- / .row -->
-            </div>
-            <!-- / .container -->
-        </section>
-                <div class="print_whatsapp delay_elementos " >
+                <div class="print_whatsapp delay_elementos  d-none" >
             <img src="images/print-base.jpeg"  alt="imagem">
         </div>
         
-        <div class="comentarios ">
+        <div class="comentarios  d-none">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -864,3 +767,54 @@ window.onload = tempo(), utms()
         </style>
     </body>
 </html>
+<!-- Meta Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '6120448567987730');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=6120448567987730&ev=PageView&noscript=1"
+    /></noscript>
+<!-- End Meta Pixel Code -->
+<!-- Meta Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '633182768461870');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=633182768461870&ev=PageView&noscript=1"
+    /></noscript>
+<!-- End Meta Pixel Code -->
+<!-- Meta Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '589068453294460');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=589068453294460&ev=PageView&noscript=1"
+    /></noscript>
+<!-- End Meta Pixel Code -->

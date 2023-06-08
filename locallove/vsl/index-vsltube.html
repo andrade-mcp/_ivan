@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -16,44 +17,18 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!--== fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
         <!--== odometer -->
         <link href="css/odometer.css" rel="stylesheet" type="text/css" />
         <!--== spacing -->
         <link href="css/spacing.css" rel="stylesheet" type="text/css" />
         <!--== theme.min -->
         <link href="css/theme.min.css" rel="stylesheet" />
-        <script>
-            //utm
-            window.onload = function () {
-                var links = document.getElementsByTagName("a");
-                for (var i = 0, n = links.length; i < n; i++) {
-                    var href = links[i].href.trim() +
-                            (links[i].href.indexOf("?") > 0 ? '&' : '?') +
-                            document.location.search.replace('?', '').toString();
-                    links[i].href = href;
-                }
-            }
-        </script>
-        <script>
-            var urlParams;
-            (window.onpopstate = function () {
-                var match,
-                    pl     = /\+/g,
-                    search = /([^&=]+)=?([^&]*)/g,
-                    decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-                    query  = window.location.search.substring(1);
-            
-                urlParams = {};
-                while (match = search.exec(query))
-                urlParams[decode(match[1])] = decode(match[2]);
-            })();
 
-            const telefone1 = urlParams["telefone"];
-
+        <script>
             document.addEventListener('DOMContentLoaded', function () {
-                
                const telefoneInput = document.getElementById('telefone');
-               const duracao = 216000; // Duração da barra de progresso em milissegundos (300000 ms = 5 minutos)
+               const duracao = 213000; // Duração da barra de progresso em milissegundos (300000 ms = 5 minutos)
                const barraProgresso = document.getElementById('barra-progresso');
                const temporizador = document.getElementById('temporizador');
                const mensagemFinal = document.getElementById('mensagem-final');
@@ -153,40 +128,25 @@
             
         </script>
                 <!-- inject css end -->
-        <link rel="prerender" href="https://scripts.converteai.net/f51f39a5-ab55-4310-9511-86685009878b/players/638128e14fa25a000c15c9a4/embed.html">
-        <link rel="preload" href="https://scripts.converteai.net/f51f39a5-ab55-4310-9511-86685009878b/players/638128e14fa25a000c15c9a4/player.js" as="script">
-        <link rel="preload" href="https://cdn.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js" as="script">
-        <link rel="preload" href="https://images.converteai.net/f51f39a5-ab55-4310-9511-86685009878b/players/638128e14fa25a000c15c9a4/thumbnail.jpg" as="image">
-        <link rel="preload" href="https://cdn.converteai.net/f51f39a5-ab55-4310-9511-86685009878b/638128d34f096d000a74058d/playlist.m3u8" as="fetch">
-        <link rel="dns-prefetch" href="https://cdn.converteai.net">
-        <link rel="dns-prefetch" href="https://scripts.converteai.net">
-        <link rel="dns-prefetch" href="https://images.converteai.net">
-        <link rel="dns-prefetch" href="https://api.vturb.com.br">
-        <link rel="preload" href="https://scripts.converteai.net/ec9f9b0a-a26e-41f4-b0eb-81002408c15e/players/6478b6a465ce7000094b8609/player.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js" as="script">
-<link rel="preload" href="https://images.converteai.net/ec9f9b0a-a26e-41f4-b0eb-81002408c15e/players/6478b6a465ce7000094b8609/thumbnail.jpg" as="image">
-<link rel="preload" href="https://cdn.converteai.net/ec9f9b0a-a26e-41f4-b0eb-81002408c15e/6478b684f218ab00097d2f5c/main.m3u8" as="fetch">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://api.vturb.com.br">
+
 <!-- Meta Pixel Code -->
 <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '934208887811619');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=934208887811619&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1422122145203909');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1422122145203909&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 
         <script>
             if (document.addEventListener) {
@@ -268,12 +228,15 @@
         <div class="video-topo ">
             <div class="container">
                 <div class="row align-items-center">
+                    <div id='vsltube_GQmp7ujIz3cW' style='overflow:hidden;position:relative;box-sizing:border-box; font-size:10px; box-shadow:0 0 px #000000; width: calc(100% - px); max-width:px; margin:0 auto; margin: px auto; border: 0em solid #a3a3a3; border-radius: px '><style id='ncss_GQmp7ujIz3cW'>nome-do-elemento,.vsltube-cta { display:none !important;  }</style> <style> @media (max-width: 600px){ #vsltube_GQmp7ujIz3cW {font-size:1.6vw !important}}</style> <iframe id='vsltube_iframe_GQmp7ujIz3cW' allowfullscreen  style='box-shadow:none!important;max-width: 110%!important; position: absolute;top: -3px; bottom:-3px;left: -3px; right:-3px;width: calc(100% + 6px);height: calc(100% + 6px);' frameborder='0' scrolling='no' srcdoc="<html><head></head><body style='margin: 0px;padding: 0px;'><link rel='stylesheet' href='https://cdn.vsltube.com/app/vsltube-player.css' type='text/css' /> 
+                        <style id='ncss_GQmp7ujIz3cW'>nome-do-elemento, .vsltube-cta { display:none !important;  }</style> 
+                        <div id='vsltube' data-key='48115a57464056411109110400040b04020501045004060500005604000457040b01040603040404570402040a04500056040004550457111f114056544641525d50521109117603020a71077670067005720406720a010576010370000b0200760601010a02111f115246475c435f524a11091102111f1141565e52415856475a5d541109021f115a57455a57565c110911634159495807705c457162111f115a57465d5a505c11091174625e430446597a49005064111f11435a4b565f7d5c5e567645565d475c11091145405f47465156111f11555c415e52475c1109115b5c415a495c5d47525f5e5c5756111f116364110911111f117164110911111f11717011091110520052005200111f11436152575a4640110911111f11405b52575c4464110911111f11405b52575c447011091110030303030303111f115f5a45565e5c57567c5d11091103111f11515241415263415c54415640405c705c5f5c4111091110555503030303111f1155465f5f40504156565d7c5d11091103111f11475a5e56417c5d11091103111f115e4647567c5d11091103111f115a5d47415c11091102111f115a5d47415c67564b47021109117267767df4f07c131e1370767d726013757c61677660111f115a5d47415c67564b470111091179f213707c7e76f47c661f13707f7a7072137262667a111f11515241415263415c54415640405c7c5d11091102111f11515241415263415c54415640405c705c5d47415c5f5611091103111f115152414152725f474641521109110206111f1151524141527552585611091103111f11515241415275525856675a5e56110911111f115250475a5c5d705c5f5c4111091110555503030306111f115c43565d60504156565d7174110911111f11435246405660504156565d717411091113111f11565d5760504156565d717411091113111f11565d5760504156565d67564b471109117240405a40475a41135d5c45525e565d47560c111f11405b5c44765f565e565d471109115d5c5e561e575c1e565f565e565d475c111f11405b5c44675a5e561109061f11505c5c585a567c5d11091102111f11505c5c585a56705c5f5c4111091110555503030303111f11505c5c585a56675a47465f5c110911655c50d91359d213505c5e56d45c461352135240405a40475a4113564047561345de57565c111f11505c5c585a5667564b475c705c5d475a5d4656110911705c5d475a5d465241135240405a40475a5d575c111f11505c5c585a5667564b475c61565a5d5a505a52411109117240405a40475a4113575c135a5dde505a5c114e'></div> 
+                           <script id='vsltubeJs' src='https://cdn.vsltube.com/app/vsltube.js?v=2'></script> <body></html> "></iframe><div style='padding-bottom:55%; width: 100%; display:block' ></div> 
+                    </div> 
+                    <div class="botao-eu-quero">
                 
-				<div id="vid_6472ccaa65ce7000094b5799" style="position:relative;width:100%;padding: 56.25% 0 0;"><img id="thumb_6472ccaa65ce7000094b5799" src="https://images.converteai.net/8e35f6d9-e493-4dc6-ada9-fb6f2848b7f1/players/6472ccaa65ce7000094b5799/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_6472ccaa65ce7000094b5799" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div><script type="text/javascript" id="scr_6472ccaa65ce7000094b5799">var s=document.createElement("script");s.src="https://scripts.converteai.net/8e35f6d9-e493-4dc6-ada9-fb6f2848b7f1/players/6472ccaa65ce7000094b5799/player.js",s.async=!0,document.head.appendChild(s);</script>
-				
-				<div class="botao-eu-quero">
                 
-				<p class="assista-ao-video">ASSISTA AO VÍDEO ENQUANTO AS CONVERSAS ESTÃO SENDO PROCESSADAS…</p>
+                        <p class="assista-ao-video">ASSISTA AO VÍDEO ENQUANTO AS CONVERSAS ESTÃO SENDO PROCESSADAS…</p>
                     </div>
                 </div>
             </div>
@@ -293,12 +256,7 @@
                             </div>
                         </div>
                         <div id="mensagem-final" class="col-12 mensagem-final" style="display: none;">
-                            <p class="mt-3 foram-encontradas" >FORAM ENCONTRADAS <b>12 MENSAGENS</b> COMPROMETEDORAS NO NÚMERO <b>
-                            <span id="phone"></span>
-                            <script>
-                                document.getElementById('phone').innerHTML = telefone1;                                
-                            </script>
-                            </b></p>
+                            <p class="mt-3 foram-encontradas" >FORAM ENCONTRADAS <b>12 MENSAGENS</b> COMPROMETEDORAS NO NÚMERO <b>(12) 12121-2121</b></p>
                             <a href="#oferta" class="btn btn-success mt-5">QUERO VER AS MENSAGENS AGORA!</a>
                             <h2><b>PARA TER ACESSO AS MENSAGENS FINALIZE SEU CADASTRO, PAGANDO ESSA TAXA ÚNICA PARA MANTER NOSSO SERVIDOR FUNCIONANDO PERFEITAMENTE!</b></h2>
                         </div>
@@ -324,15 +282,16 @@
                                         </div>
                                         <h5 class="mb-0 " style=" text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.59); color: #ff0000;"><b>SOMENTE HOJE</b></h5>
                                         <p class="mb-0 " style="text-decoration: line-through; font-size:25px; text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.59); color: #ff0000;">De <b>R$ 297,00</b></p>
-                                        <p class="mt-2 mb-0 " style="color:#00A116; text-align: left;">12x</p>
+                                        <p class="mt-2 mb-0 " style="color:#00A116">por apenas</p>
                                         <!-- Price -->
                                         <div class="d-flex justify-content-center text-dark text-center" style="color:#00A116 !important; text-shadow: 0px 0px 10px rgba(9.250769979841138, 171.74999999999997, 0.25669157608698, 0.64);">
                                             <span class="price display-2 fw-bold" style="color:#00A116">
-                                            <span style="font-size: 25px; color:#00A116;"></span>14,74</span>                                         
+                                            <span style="font-size: 25px; color:#00A116">R$</span>
+                                            67,00                                            
+                                            </span>
                                         </div>
-                                        <p class="mt-2 mb-0 " style="color:#00A116;">ou um único pagamento de <strong>R$147,00</strong></p>
                                         <!-- Button -->
-                                        <a href="https://secure.doppus.com/pay/PBB0JH5MBB0JH5GZ880Z8" id="comprar" class="btn btn-success mt-5"> PAGAR AGORA</a>
+                                        <a href="https://secure.doppus.com/pay/PJBH0JMJBH0JGZ8H553" id="comprar" class="btn btn-success mt-5"> PAGAR AGORA</a>
                                         <!-- Features -->
                                     </div>
                                 </div>
@@ -863,4 +822,21 @@ window.onload = tempo(), utms()
             }
         </style>
     </body>
-</html>
+</html><!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '927088705264305');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=927088705264305&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
