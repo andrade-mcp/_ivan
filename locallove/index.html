@@ -73,8 +73,11 @@
                telefoneInput.addEventListener('input', function (e) {
                   let telefone = e.target.value;
             
+                  //mex +52-XXX-XXX-XXXX
+                  //col +57-601-XXX XXXX
+
                   telefone = telefone.replace(/\D/g, '');
-                  telefone = telefone.replace(/^(\d{2})(\d)/g, '($1) $2');
+                  telefone = telefone.replace(/^(\d{3})(\d)/g, '($1) $2');
                   telefone = telefone.replace(/(\d)(\d{4})$/, '$1-$2');
             
                   if (telefone.length > 15) {
@@ -190,7 +193,7 @@
                                 <input type="hidden" name="utm_campaign" value="">
                                 <input type="hidden" name="utm_content" value="">
                                 <input type="hidden"  name="clicou" value="1">
-                                <input type="text" class="form-control text-left input-telefone" id="telefone" placeholder="Ex. (261) 629-7934" maxlength="15" name="telefone" required>
+                                <input type="text" class="form-control text-left input-telefone" id="telefone" placeholder="Ex. (261) 629-7934" maxlength="14" name="telefone" required>
                             </div>
                             <div class="form-group">
                                 <div class="form-check">
