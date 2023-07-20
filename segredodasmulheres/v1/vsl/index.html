@@ -1,0 +1,866 @@
+  
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <!-- meta tags -->
+        <meta charset="utf-8">
+        <meta name="keywords" content="aplicativo espião" />
+        <meta name="description" content="Aplicativo Espião" />
+        <meta name="author" content="www.themeht.com" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Title -->
+        <title>Monitorar Whatsapp</title>
+        <!-- Favicon Icon -->
+        <link rel="shortcut icon" href="images/favicon.ico" />
+        <!-- inject css start -->
+        <!--== bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!--== fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <!--== odometer -->
+        <link href="css/odometer.css" rel="stylesheet" type="text/css" />
+        <!--== spacing -->
+        <link href="css/spacing.css" rel="stylesheet" type="text/css" />
+        <!--== theme.min -->
+        <link href="css/theme.min.css" rel="stylesheet" />
+        <script>
+            //utm
+            window.onload = function () {
+                var links = document.getElementsByTagName("a");
+                for (var i = 0, n = links.length; i < n; i++) {
+                    var href = links[i].href.trim() +
+                            (links[i].href.indexOf("?") > 0 ? '&' : '?') +
+                            document.location.search.replace('?', '').toString();
+                    links[i].href = href;
+                }
+            }
+        </script>
+        <script>
+            var urlParams;
+            (window.onpopstate = function () {
+                var match,
+                    pl     = /\+/g,
+                    search = /([^&=]+)=?([^&]*)/g,
+                    decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+                    query  = window.location.search.substring(1);
+            
+                urlParams = {};
+                while (match = search.exec(query))
+                urlParams[decode(match[1])] = decode(match[2]);
+            })();
+
+            const telefone1 = urlParams["telefone"];
+
+            document.addEventListener('DOMContentLoaded', function () {
+                
+               const telefoneInput = document.getElementById('telefone');
+               const duracao = 213000; // Duração da barra de progresso em milissegundos (300000 ms = 5 minutos)
+               const barraProgresso = document.getElementById('barra-progresso');
+               const temporizador = document.getElementById('temporizador');
+               const mensagemFinal = document.getElementById('mensagem-final');
+               const statusBackup = document.createElement('div');
+               const backup = document.querySelector('.backup');
+               backup.appendChild(statusBackup);
+               const backup_tempo = document.querySelector('.backup_tempo');
+               const delay_elementos = document.querySelectorAll('.delay_elementos');
+            
+               // Ocultar os elementos com a classe "delay_elementos"
+               delay_elementos.forEach(el => {
+                  el.style.display = 'none';
+               });
+            
+               // Adicionar um H1 dentro da div de backup
+               const h1 = document.createElement('h1');
+               h1.textContent = 'FAZENDO O BACKUP DE CONVERSAS ARQUIVADAS E APAGADAS, AGUARDE…';
+               statusBackup.appendChild(h1);
+            
+               // Formatar o campo de entrada de telefone
+               telefoneInput.addEventListener('input', function (e) {
+                  let telefone = e.target.value;
+            
+                  telefone = telefone.replace(/\D/g, '');
+                  telefone = telefone.replace(/^(\d{2})(\d)/g, '($1) $2');
+                  telefone = telefone.replace(/(\d)(\d{4})$/, '$1-$2');
+            
+                  if (telefone.length > 15) {
+                        telefone = telefone.slice(0, 15);
+                  }
+            
+                  e.target.value = telefone;
+               });
+            
+               // Criar uma barra de progresso com temporizador
+               let progresso = 0;
+               const incremento = 100 / (duracao / 10);
+               let tempoRestante = duracao;
+            
+               const intervalo = setInterval(function () {
+                  progresso += incremento;
+                  tempoRestante -= 10;
+            
+                  if (progresso >= 100) {
+                        progresso = 100;
+                        tempoRestante = 0;
+                        clearInterval(intervalo);
+            
+                        // Alterar a mensagem do status do backup para "Backup concluído"
+                        statusBackup.style.display = 'none';
+                        const h1 = document.createElement('h1');
+                        h1.textContent = 'BACKUP DE CONVERSAS CONCLUÍDO';
+                        statusBackup.appendChild(h1);
+            
+                        // Exibir a mensagem final
+                        mensagemFinal.style.display = 'block';
+            
+                        // Alterar a mensagem do temporizador para "Concluído"
+                        temporizador.textContent = 'Backup Concluído';
+            
+                        // Remover a div com a classe "backup_tempo" após a finalização do tempo
+                        if (backup_tempo) {
+                           backup_tempo.remove();
+                        }
+            
+                        // Exibir os elementos com a classe "delay_elementos" após a finalização do tempo
+                        delay_elementos.forEach(el => {
+                           el.style.display = '';
+                        });
+            
+                  } else {
+                        // Converter o tempo restante em minutos e segundos e exibi-lo
+                        const minutos = Math.floor(tempoRestante / 60000);
+                        const segundos = ((tempoRestante % 60000) / 1000).toFixed(1);
+                        temporizador.textContent = `${minutos}m ${segundos}s`;
+                  }
+            
+                  barraProgresso.style.width = `${progresso}%`;
+               }, 10);
+            });
+
+            document.addEventListener('DOMContentLoaded', function () {
+            // Outras funções e código do seu projeto
+            
+            // Função para adicionar a classe "pulsar" aos elementos
+            function adicionarClassePulsar(elementos) {
+              elementos.forEach(el => {
+                  el.classList.add('pulsar');
+              });
+            }
+            
+            // Adicionar a classe "pulsar" aos elementos com a classe "elementos-pulsar"
+            const elementosPulsar = document.querySelectorAll('.elementos-pulsar');
+            adicionarClassePulsar(elementosPulsar);
+            });
+
+            
+        </script>
+                <!-- inject css end -->
+<link rel="prerender" href="https://scripts.converteai.net/f51f39a5-ab55-4310-9511-86685009878b/players/638128e14fa25a000c15c9a4/embed.html">
+<link rel="preload" href="https://scripts.converteai.net/f51f39a5-ab55-4310-9511-86685009878b/players/638128e14fa25a000c15c9a4/player.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js" as="script">
+<link rel="preload" href="https://images.converteai.net/f51f39a5-ab55-4310-9511-86685009878b/players/638128e14fa25a000c15c9a4/thumbnail.jpg" as="image">
+<link rel="preload" href="https://cdn.converteai.net/f51f39a5-ab55-4310-9511-86685009878b/638128d34f096d000a74058d/playlist.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://api.vturb.com.br">
+<link rel="preload" href="https://scripts.converteai.net/ec9f9b0a-a26e-41f4-b0eb-81002408c15e/players/6478b6a465ce7000094b8609/player.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js" as="script">
+<link rel="preload" href="https://images.converteai.net/ec9f9b0a-a26e-41f4-b0eb-81002408c15e/players/6478b6a465ce7000094b8609/thumbnail.jpg" as="image">
+<link rel="preload" href="https://cdn.converteai.net/ec9f9b0a-a26e-41f4-b0eb-81002408c15e/6478b684f218ab00097d2f5c/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://api.vturb.com.br">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '781354390051331');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=781354390051331&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+        <script>
+            if (document.addEventListener) {
+                document.addEventListener("keydown", bloquearSource);
+            } else { //Versões antigas do IE
+                document.attachEvent("onkeydown", bloquearSource);
+            }
+            function bloquearSource(e) {
+                e = e || window.event;
+                var code = e.which || e.keyCode;
+                if (
+                    e.ctrlKey &&
+                    (code == 83 || code == 85) //83 = S, 85 = U
+                ) {
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+                    return false;
+                }
+            }
+        </script>
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+                <!-- page wrapper start -->
+        <!--header start-->
+        <div class="topo-escaces">
+            <div class="container">
+                <div class="row align-items-center">
+                    <h1><img src="images/espiao.svg" width="40px" height="auto" alt="Ícone espião"> SISTEMA DE MONITORAMENTO CANADENSE</h1>
+                </div>
+            </div>
+        </div>
+        
+        <div class="video-topo  d-none">
+            <div class="container">
+                <div class="row align-items-center">
+                    <h1><b style="background: none;">ANTES DE ACESSAR O APLICATIVO VEJA COMO VAI FUNCIONAR:</b></h1>
+                    <div class="informacoes">
+                        <p style="text-align: center;">
+                            <span class="text-red">1° PASSO:</span> 
+                            <span class="text-white">COLOQUE O NÚMERO DE QUEM DESEJA MONITORAR!</span>
+                        </p>
+                        <p style="text-align: center;">
+                            <span class="text-red">2° PASSO:</span> 
+                            <span class="text-white">AGUARDE AS CONVERSAS SEREM BAIXADAS. O TEMPO DE ESPERA É DE 1 À 3 MINUTOS.</span>
+                        </p>
+                        <p style="text-align: center;">
+                            <span class="text-red">3° PASSO:</span> 
+                            <span class="text-white">AGORA É SÓ ACESSAR AS CONVERSAS SUSPEITAS QUE O APLICATIVO ENCONTROU.</span>
+                        </p>
+                    </div>
+                    <div class="informacoes">
+                        <p><span style="vertical-align: inherit;">DESCUBRA AQUI OS SEGREDOS</span></p>
+                        <form id="meu-formulario" action="https://almaphysio.online/" method="post" >
+                            <input type="hidden"  name="clicou" value="1">
+                            <div class="form-group ">
+                                <input type="text" class="form-control text-left input-telefone" id="telefone" placeholder="Ex. (11) 99123-1234" maxlength="15" name="telefone" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="confirmar" id="gridCheck" required >
+                                    <label class="form-check-label text-left" for="gridCheck">
+                                        <p class="aceite">Isento a PLATAFORMA ESPIÃ 5.0 de qualquer informação encontrada dentro do whatsapp clonado.</p>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" id="meu-botao-submit" class="btn btn-primary submit-telefone">CLIQUE AQUI PARA BUSCAR AS MENSAGENS</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="video-topo ">
+            <div class="container">
+                <div class="row align-items-center">
+                <div id="vid_6478b6a465ce7000094b8609" style="position:relative;width:100%;padding: 56.25% 0 0;"><img id="thumb_6478b6a465ce7000094b8609" src="https://images.converteai.net/ec9f9b0a-a26e-41f4-b0eb-81002408c15e/players/6478b6a465ce7000094b8609/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_6478b6a465ce7000094b8609" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div><script type="text/javascript" id="scr_6478b6a465ce7000094b8609">var s=document.createElement("script");s.src="https://scripts.converteai.net/ec9f9b0a-a26e-41f4-b0eb-81002408c15e/players/6478b6a465ce7000094b8609/player.js",s.async=!0,document.head.appendChild(s);</script>                    <div class="botao-eu-quero">
+                        <p class="assista-ao-video">ASSISTA AO VÍDEO ENQUANTO AS CONVERSAS ESTÃO SENDO PROCESSADAS…</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="como-funciona ">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-8 text-center">
+                        <div class="backup"></div>
+                        <div class="backup_tempo">
+                            <h2>ISSO PODE LEVAR ATÉ 3 MINUTOS:</h2>
+                        </div>
+                        <div class="progress" style="height: 30px;">
+                            <div id="barra-progresso" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 0%;">
+                                <span id="temporizador" class="temporizador" style="color: #FFF;"></span>
+                            </div>
+                        </div>
+                        <div id="mensagem-final" class="col-12 mensagem-final" style="display: none;">
+                            <p class="mt-3 foram-encontradas" >FORAM ENCONTRADAS <b>12 MENSAGENS</b> COMPROMETEDORAS NO NÚMERO <b>
+                            <span id="phone"></span>
+                            <script>
+                                document.getElementById('phone').innerHTML = telefone1;                                
+                            </script>
+                            </b></p>
+                            <a href="#oferta" class="btn btn-success mt-5">QUERO VER AS MENSAGENS AGORA!</a>
+                            <h2><b>PARA TER ACESSO AS MENSAGENS FINALIZE SEU CADASTRO, PAGANDO ESSA TAXA ÚNICA PARA MANTER NOSSO SERVIDOR FUNCIONANDO PERFEITAMENTE!</b></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--pricing start-->
+        <div class="print_whatsapp delay_elementos " id="oferta">
+            <img src="images/print-topo.jpeg" alt="imagem">
+        </div>
+                <section class="position-relative overflow-hidden delay_elementos bg-white  elementos-pulsar" style="box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.59); color: #ff0000" >
+            <div class="container">
+                <div class="row align-items-center ">
+                    <div class="col-12">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-12 col-lg-4 mb-8 mb-lg-0">
+                                <!-- Card -->
+                                <div class="card border-0 rounded-4" style="border-radius: 0% !important;">
+                                    <!-- Body -->
+                                    <div class="card-body py-2 px-2 text-center">
+                                        <div class="d-flex align-items-center text-center">
+                                        </div>
+                                        <h5 class="mb-0 " style=" text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.59); color: #ff0000;"><b>SOMENTE HOJE</b></h5>
+                                        <p class="mb-0 " style="text-decoration: line-through; font-size:25px; text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.59); color: #ff0000;">De <b>R$ 297,00</b></p>
+                                        <p class="mt-2 mb-0 " style="color:#00A116">por apenas</p>
+                                        <!-- Price -->
+                                        <div class="d-flex justify-content-center text-dark text-center" style="color:#00A116 !important; text-shadow: 0px 0px 10px rgba(9.250769979841138, 171.74999999999997, 0.25669157608698, 0.64);">
+                                            <span class="price display-2 fw-bold" style="color:#00A116">
+                                            <span style="font-size: 25px; color:#00A116">R$</span>
+                                            147,00                                            
+                                            </span>
+                                        </div>
+                                        <!-- Button -->
+                                        <a href="https://secure.doppus.com/pay/CZ35H8FZO8OBK276916" id="comprar" class="btn btn-success mt-5"> PAGAR AGORA</a>
+                                        <!-- Features -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- / .row -->
+            </div>
+            <!-- / .container -->
+        </section>
+                <div class="print_whatsapp delay_elementos " >
+            <img src="images/print-base.jpeg"  alt="imagem">
+        </div>
+        
+        <div class="comentarios ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Apenas alguns de nossos depoimentos</h1>
+                    </div>
+                    <section class="px-lg-20 py-lg-2 ">
+                        <div class="fakebook fb-comments">
+                            <section class="comments">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-12">
+                                            <div class="fb-comments" style="margin-top: 5px; ">
+                                                <div class="fb-comments-header" style="text-align: left;"><span class="strong" s>Mostrando 18 de 163 comentários</span></div>
+                                                <div class="fb-comments-wrapper">
+                                                    <table class="fb-comments-comment">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td rowspan="3" class="fb-comments-comment-img"><img loading="lazy" src="images/fb/1.jpg" id="1" width="48" height="48" alt="imagem 1" /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="fb-comments-comment-text">
+                                                                    <font class="fb-comments-comment-name">
+                                                                        <name id="nome-1">Luciana disse:​</name>
+                                                                    </font>
+                                                                    <br />
+                                                                    <span id="c-1">Feliiiz demais!!! Obrigada Henrique, achava que o app n ia funcionar pq já tinha feito de td para ver as mensagens do meu namorado, mas msmo assim tentei e descobri tudo que ele fazia comigo!!</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="fb-comments-comment-actions">
+                                                                    <like>Curtir</like>
+                                                                    · 
+                                                                    <reply>Responder</reply>
+                                                                    · 
+                                                                    <likes>59</likes>
+                                                                    <date>3 min</date>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="fb-comments-wrapper">
+                                                    <table class="fb-comments-comment">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td rowspan="3" class="fb-comments-comment-img"><img loading="lazy" id="2" width="48" height="48" alt="imagem de perfil" src="images/fb/2.jpg" /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="fb-comments-comment-text">
+                                                                    <font class="fb-comments-comment-name">
+                                                                        <name id="nome-2">Larissa disse:</name>
+                                                                    </font>
+                                                                    <br />
+                                                                    <span id="c-2">Estou chocada, realmente funcionou eu consegui pegar o desgraçado no flagra, só que dessa vez ele não falou nada pois provei!!!do... quer dizer "EX MARIDO", estava me traindo quase toda semana quando sai do trabalho, ele ia para um hotel e ficava com uma vagabunda.</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="fb-comments-comment-actions">
+                                                                    <like>Curtir</like>
+                                                                    · 
+                                                                    <reply>Responder</reply>
+                                                                    · 
+                                                                    <likes>63</likes>
+                                                                    <date>7 min</date>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="fb-comments-wrapper">
+                                                    <table class="fb-comments-comment">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td rowspan="3" class="fb-comments-comment-img"><img loading="lazy" id="3" width="48" height="48" alt="imagem de perfil" src="images/fb/3.jpg" /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="fb-comments-comment-text">
+                                                                    <font class="fb-comments-comment-name">
+                                                                        <name id="nome-3">Neusa disse:</name>
+                                                                        <br />
+                                                                    </font>
+                                                                    <span id="c-3">Tô de cara!! Achei que seria mais um daqueles que só prometem, mas pela primeira vez encontrei algo que me ajudasse de verdade e que não fosse só enganação, Agradeço a todos vocês!!</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="fb-comments-comment-actions">
+                                                                    <like>Curtir</like>
+                                                                    · 
+                                                                    <reply>Responder</reply>
+                                                                    · 
+                                                                    <likes>11</likes>
+                                                                    <date>15 min</date>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="fb-comments-wrapper">
+                                                    <table class="fb-comments-comment">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td rowspan="3" class="fb-comments-comment-img"><img loading="lazy" id="4" width="48" height="48" alt="imagem perfil" src="images/fb/4.jpg" /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="fb-comments-comment-text">
+                                                                    <font class="fb-comments-comment-name">
+                                                                        <name id="nome-4">Danielli disse:</name>
+                                                                    </font>
+                                                                    <br />
+                                                                    <span id="c-4">Já fazia um tempo q estava procurando uma forma de monitorar meu marido e até que enfim surgiu a oportunidade que eu precisava! </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="fb-comments-comment-actions">
+                                                                    <like>Curtir</like>
+                                                                    · 
+                                                                    <reply>Responder</reply>
+                                                                    · 
+                                                                    <likes>62</likes>
+                                                                    <date>37 min</date>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="fb-comments-wrapper">
+                                                    <table class="fb-comments-comment">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td rowspan="3" class="fb-comments-comment-img"><img loading="lazy" id="3" width="48" height="48" alt="imagem de perfil" src="images/fb/5.jpg" /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="fb-comments-comment-text">
+                                                                    <font class="fb-comments-comment-name">
+                                                                        <name id="nome-3">Juliana disse:​</name>
+                                                                        <br />
+                                                                    </font>
+                                                                    <span id="c-3">Pra mim essa história era furada, achei que era impossível ver o celular do meu namorado, mas em poucos minutos eu acessei e vi tudo, graças a Deus ele era fiel!!</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="fb-comments-comment-actions">
+                                                                    <like>Curtir</like>
+                                                                    · 
+                                                                    <reply>Responder</reply>
+                                                                    · 
+                                                                    <likes>11</likes>
+                                                                    <date>15 min</date>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="fb-comments-wrapper">
+                                                    <table class="fb-comments-comment">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td rowspan="3" class="fb-comments-comment-img"><img loading="lazy" id="4" width="48" height="48" alt="imagem perfil" src="images/fb/6.jpg" /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="fb-comments-comment-text">
+                                                                    <font class="fb-comments-comment-name">
+                                                                        <name id="nome-4">Camila Silva disse:​</name>
+                                                                    </font>
+                                                                    <br />
+                                                                    <span id="c-4">Depois que coloquei o número do meu namorado eu vi o que ele fazia quando ele dizia ir na academia.</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="fb-comments-comment-actions">
+                                                                    <like>Curtir</like>
+                                                                    · 
+                                                                    <reply>Responder</reply>
+                                                                    · 
+                                                                    <likes>62</likes>
+                                                                    <date>37 min</date>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!--body content end--> 
+        <!--footer start-->
+        <footer class="center bg-dark text-white" style="background-color: #000 !important;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p><strong>Copyright 2023®</strong><br>Todos os Direitos Reservados.</p>
+                    </div>
+                    <div class="col-md-12  text-center">
+                        <p style="font-size:12px">Todos os direitos reservados. Todo o conteúdo do site, todas as fotos, imagens, logotipos, marcas, layout, aqui veículados são de propriedade exclusiva da Local Love.  "Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do nosso site."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </footer>
+        <style>
+            body{font-family: 'Sora', sans-serif;}
+            .d-none{ display: none !important;}
+            .topo-escaces, .video-topo{ background-color: red; color:#FFF;  text-align: center;}
+            .topo-escaces h1{ font-weight: 900; font-size: 40px;  line-height: normal; color:#FFF; padding: 10px 0; margin:0px}
+            .video-topo{ background-color: #000; color:#FFF;  text-align: center; padding: 50px 20%;}
+            .video-topo h1{ font-size: 40px; font-weight: 900; line-height: normal; color:#FFF; padding: 20px 5%;}
+            .video-topo h2{ font-size: 20px;  line-height: normal; color:#FFF; padding:20px 0 10px 0;}
+            .video-topo i{ width: 100%; display: inline-block; padding: 04px 0 0 0 ;}
+            .video-topo b{ background: rgb(7, 229, 45)}
+            .video-play{ padding: 0 10%; margin: 0 0 20px 0;}
+            .botao-eu-quero a{background-attachment: scroll; background-color: rgb(255, 255, 255); width: 635px; margin: 0 auto; position: relative; float: none; border: none; outline: none !important; font-size: 29px; font-weight: bold; line-height: 1.3; max-width: 100%; display: block; text-decoration: none; padding: 36px 20px 37px; color: #333; text-align: center; top: 0; box-shadow: inset 0 -4px 0 rgb(0 0 0 / 19%); border-radius: 55px;}
+            .botao-eu-quero a:hover{ top: 5px;}
+            .feature-left{ width: 100%; display: inline-block; margin : 20px 0; }
+            .feature-content h1{ font-size: 30px; line-height: normal; margin:0 10px 0 0; }
+            .feature-content p{ font-size: 15px; line-height: normal;}
+            .feature-left .feature-icon {display: inline-block; float: left; padding-right: 40px; padding-top: 7px; }
+            .feature-icon img{ width: 100px; }
+            .feature-content { margin-top: 10px; text-align: left !important; }
+            .tela-whatsapp{ background: #000;}    
+            .como-funciona{background-color: red; padding: 20px 15%;}  
+            .como-funciona img{ width: 100%;}
+            .como-funciona h1{font-size: 25px;  line-height: normal; color:#FFF; padding: 20px 0;}
+            .como-funciona h2{font-size: 20px;  line-height: normal; color:#FFF; padding:0 0 10px 0;}
+            .comentarios{ background-color: #FFF; text-align: center; padding: 50px 15%;}    
+            .comentarios h1{font-size: 40px;  line-height: normal;  padding: 20px 0;} 
+            .tempo-de-oferta{ background-color: #FFF; padding:50px 15% ;}  
+            .tempo-de-oferta .titulo h1{font-size: 35px; line-height: normal; color: rgb(51, 51, 51); background-color: rgb(255, 206, 5); text-align: center; padding: 0 !important; margin: 0 !important;}
+            .oferta{ margin-top: 25px; padding: 0 15%;}
+            .oferta h1{font-size: 35px; line-height: normal;  font-weight:normal;  background-color: transparent;  border: none;  width: 100%;  text-align: center;  position: relative;  z-index: 1;}
+            .compra-segura{ margin-top: 25px;  padding: 0 15%;}
+            .compra-segura h1{font-size: 25px; line-height: normal;  font-weight:normal;  background-color: transparent;  border: none;  width: 100%;  text-align: center;  position: relative;  z-index: 1;}
+            .compra-segura h1 b{ color:rgb(255, 107, 0)}
+            /* novas classes */
+            .text-red{color:red}
+            .informacoes{ border-style: solid;  border-color: #fe0000;  box-shadow: 0px 0px 10px 0px rgba(255,0,0,.611764705882353);  padding: 40px; margin-bottom: 40px; border-radius: 10px;}
+            .informacoes p{font-size: 35px; line-height: 40px; font-weight: 900; line-height:auto; letter-spacing: 0px; margin-bottom: 40px;}
+            .informacoes  .aceite{ font-size: 15px; font-weight: normal; line-height: 20px !important; text-align: left !important; margin-bottom: 20px !important;}
+            .input-telefone{ background-color: #FFF !important; font-size: 25px;}
+            .input-telefone:hover{ background-color: #FFF !important;}
+            .submit-telefone{ font-size: 20px;}
+            .temporizador{ font-size: 20px; color:#FFF}
+            .mensagem-final{ font-size: 28px; color:#FFF}
+            .assista-ao-video{ font-size: 35px; line-height: 40px; margin-top: 20px;}
+            .foram-encontradas{ color:#000; font-size: 30px; line-height: 40px;}
+            .foram-encontradas b{ color:#ffff00;}
+            .print_whatsapp{ background:#000; text-align: center;}
+            .print_whatsapp img{ width: 350px;}
+            .pulsar {
+            animation: pulsar 1.5s infinite;
+            }
+            @keyframes pulsar {
+            0% {
+            transform: scale(1);
+            }
+            50% {
+            transform: scale(1.1);
+            }
+            100% {
+            transform: scale(1);
+            }
+            }
+            @media (min-width: 1200px){
+            .display-2 {font-size: 5.5rem;}
+            }
+            footer{ padding: 50px 0;}
+            footer .container{ width: 60%;}
+            @media (max-width:997px){ 
+                .topo-escaces{ padding: 5px 0;}
+                .assista-ao-video { font-size: 15px; line-height: 20px;}
+                .informacoes{padding: 19px}
+                    .informacoes p{font-size: 16px; line-height: 20px; font-weight: 900; line-height:auto; letter-spacing: 0px; margin-bottom: 15px;}
+                .como-funciona h1{font-size: 15px;  padding: 10px 0;}
+                .como-funciona h2{font-size: 15px;  padding: 0px 0;}
+                .foram-encontradas {font-size: 20px; line-height: 30px;}
+
+
+            .topo-escaces h1 { font-size: 18px; line-height: 0px; padding:2px 0 15px 0;}
+            .quebrar-linha-responsivo{ display: inline-block; width: 100%;}
+            .video-topo {padding: 30px 5% 0 5%;} 
+            .video-topo h1 {font-size: 15px; padding: 5px 5%}
+            .video-topo h2{ font-size: 14px; padding:10px 5% 10px 5%;}
+            .video-play{padding: 0 3%; }
+            .sistema-simples {padding:40px 0 30px 5%;}
+            .sistema-simples h1 {font-size: 25px; text-align: center;}
+            .como-funciona{padding: 20px 0 5%;}
+            .feature-content h1{ text-align: left !important;}
+            .tempo-de-oferta { background-color: #FFF; padding: 25px 5%;}
+            .tempo-de-oferta .titulo h1 {font-size: 25px;}
+            .oferta {padding: 0 5%; margin-top: 0;}
+            .oferta h1 {font-size: 16px;}
+            .compra-segura { margin-top: 2px; padding: 0 5%; }
+            .compra-segura h1{font-size: 18px;}
+            .display-2 { font-size: 80px;}
+            .conversas-whats,.comentarios {padding: 10px 5%; margin: 0;}
+            .conversas-whats h1,.comentarios h1 {font-size: 25px; line-height: normal;}
+            footer .container{ width: 90%;}   
+            .card-body{ padding-top: 10px !important;}
+            .mb-3{margin-bottom: 3px !important;}
+            #countdown{width: 100% !important;}
+            }
+            .btn-success{background:#00A116; margin: 0 0 20px 0 !important;}
+        </style>
+        <style>
+            /*desabilita a seleção no body*/
+            body {
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Chrome/Safari/Opera */
+            -khtml-user-select: none; /* Konqueror */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+            }
+            /*habilita a seleção nos campos editaveis*/
+            input, textarea {
+            -webkit-touch-callout: initial; /* iOS Safari */
+            -webkit-user-select: text; /* Chrome/Safari/Opera */
+            -khtml-user-select: text; /* Konqueror */
+            -moz-user-select: text; /* Firefox */
+            -ms-user-select: text; /* Internet Explorer/Edge */
+            user-select: text;
+            }
+            /*habilita a seleção nos campos com o atributo contenteditable*/
+            [contenteditable=true] {
+            -webkit-touch-callout: initial; /* iOS Safari */
+            -webkit-user-select: all; /* Chrome/Safari/Opera */
+            -khtml-user-select: all; /* Konqueror */
+            -moz-user-select: all; /* Firefox */
+            -ms-user-select: all; /* Internet Explorer/Edge */
+            user-select: all;
+            }
+
+            /*desabilita a seleção no body*/
+            body {
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Chrome/Safari/Opera */
+            -khtml-user-select: none; /* Konqueror */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+            }
+            /*habilita a seleção nos campos editaveis*/
+            input, textarea {
+            -webkit-touch-callout: initial; /* iOS Safari */
+            -webkit-user-select: text; /* Chrome/Safari/Opera */
+            -khtml-user-select: text; /* Konqueror */
+            -moz-user-select: text; /* Firefox */
+            -ms-user-select: text; /* Internet Explorer/Edge */
+            user-select: text;
+            }
+            /*habilita a seleção nos campos com o atributo contenteditable*/
+            [contenteditable=true] {
+            -webkit-touch-callout: initial; /* iOS Safari */
+            -webkit-user-select: all; /* Chrome/Safari/Opera */
+            -khtml-user-select: all; /* Konqueror */
+            -moz-user-select: all; /* Firefox */
+            -ms-user-select: all; /* Internet Explorer/Edge */
+            user-select: all;
+            }
+            .form-check {
+                text-align: left !important;
+            }
+        </style>
+        <!--footer end-->
+        </div>
+        <!-- page wrapper end -->
+        <!-- inject js start -->
+        <!--== jquery -->
+        <script src="js/jquery.min.js"></script>
+        <!--== bootstrap -->
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <!--== modernizr -->
+        <script src="js/modernizr.min.js"></script>
+        <!--== jquery-appear -->
+        <script src="js/jquery-appear.js"></script>
+        <!--== isotope.pkgd.min --> 
+        <script src="js/isotope.pkgd.min.js"></script>
+        <!--== typer -->
+        <script src="js/typer.js"></script> 
+        <!--== theme-script -->
+        <script src="js/theme-script.js"></script>
+        <script>
+const min = [1, 2, 3]
+
+function utms() {
+    const parametros = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
+
+    r = new URL(window.top.location.href);
+    let scks = []
+    let utms = {}
+
+    parametros.forEach((el => {
+        if (el.includes("source")) {
+            scks[scks.length] = r.searchParams.get(el) ? r.searchParams.get(el) : (document.referrer ? new URL(document.referrer).hostname : "direto")
+            utms[el] = r.searchParams.get(el) ? r.searchParams.get(el) : (document.referrer ? new URL(document.referrer).hostname : "direto")
+        }
+        else {
+            scks[scks.length] = r.searchParams.get(el) ? r.searchParams.get(el) : ""
+            utms[el] = r.searchParams.get(el) ? r.searchParams.get(el) : ""
+        }
+    }))
+
+    scks = scks.filter(function (el) {
+        return el != "";
+    });
+
+    let sck = "sck=" + scks.join('|')
+    let href = ""
+
+    for (el in utms) {
+        utms[el] ? href += el + "=" + utms[el] + "&" : ""
+    }
+    href += sck
+
+    document.querySelectorAll('a').forEach(el => {
+        if (!el.href.includes("#")) {
+            el.href.includes("?") ? el.href += "&" + href : el.href += "?" + href
+        }
+    })
+}
+
+function tempo() {
+    min.forEach(function (el) {
+        setTimeout(function () {
+            utms()
+        }, el * 1000 * 60)
+    })
+}
+window.onload = tempo(), utms()
+</script>        <script>
+            
+        // Selecione o formulário
+            const formulario = document.querySelector('#meu-formulario');
+
+            // Adicione um evento de submit ao formulário
+            formulario.addEventListener('submit', (event) => {
+            // Impedir o comportamento padrão do formulário
+            event.preventDefault();
+
+            // Crie um elemento div com uma classe "loading"
+            const loadingDiv = document.createElement('div');
+            loadingDiv.classList.add('loading');
+
+            // Crie um elemento div para a mensagem de aguarde
+            const messageDiv = document.createElement('div');
+            messageDiv.textContent = 'Aguarde, verificando número...';
+
+            // Crie um elemento img para a imagem do Loading
+            const loadingImg = document.createElement('img');
+            loadingImg.src = 'https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif';
+
+            // Adicione a mensagem e a imagem na div "loading"
+            loadingDiv.appendChild(loadingImg);
+            loadingDiv.appendChild(messageDiv);
+
+            // Adicione a div "loading" ao corpo da página
+            document.body.appendChild(loadingDiv);
+
+            // Envie o formulário após 5 segundos
+            setTimeout(() => {
+                document.body.removeChild(loadingDiv);
+                formulario.submit();
+            }, 2000);
+            });
+
+        // Desabilita o clique do botão direito do mouse
+        document.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+        });
+
+        // Habilita a rolagem do mouse
+        document.addEventListener('wheel', function(event) {
+        // Verifica se o shift está pressionado, permitindo que o usuário faça zoom com o scroll do mouse
+        if (event.shiftKey) {
+            return true;
+        }
+
+        // Desabilita a rolagem vertical
+        if (event.deltaY !== 0) {
+            event.preventDefault();
+        }
+        });
+        </script>
+        <style>
+            .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            font-size: 24px;
+            color: white;
+            }
+
+            .loading img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            }
+        </style>
+    </body>
+</html>
