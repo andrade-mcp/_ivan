@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Login - Mega Fácil</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="../fonts.googleapis.com/css2@family=Poppins%253Aital,wght@0,100%3B0,200%3B0,300%3B0,400%3B0,500%3B0,600%3B0,700%3B0,800%3B0,900%3B1,100%3B1,200%3B1,300%3B1,400%3B1,500%3B1,600%3B1,700%3B1,800%3B1,900&amp;display=swap.css" rel="stylesheet">
+  <style type="text/css">
+ body {
+    background: #6515DD;
+    background: linear-gradient(180deg, #6515DD 0%, #6600ff 100%);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+    #loginForm {
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: white;
+      border-radius: 15px;
+      max-width: 320px;
+      border: 1px solid #E5E5E5;
+      width: 100%;
+      padding: 20px;
+      animation: 0.7s ease-out 0s 1 slideInFromDown;
+      -webkit-box-shadow: 0px 0px 13px 0px #9c5aff;
+      -moz-box-shadow: 0px 0px 13px 0px #9c5aff;
+      box-shadow: 0px 0px 13px 0px #9c5aff;
+    }
+
+    .photoCourse img {
+      width: 100%;
+      border-radius: 0px;
+      object-fit: contain;
+      margin: 10px 0;
+      max-width: 250px;
+    }
+
+    input {
+      width: calc(100% - 10px);
+      margin: 6px 0;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      font-size: 14px;
+      padding: 10px;
+      font-weight: 500;
+      background: #fdfdfd;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px 0;
+      color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 14px;
+      background-color: #009d00;
+      border-color: #009d00;
+      margin: 20px 0 10px;
+      border: 0px;
+      transition: 0.3s;
+      border-radius: 5px;
+    }
+
+    button:disabled,
+    button[disabled] {
+      opacity: 0.7;
+    }
+
+    button:hover {
+      background-color: #0dc00d !important;
+      border-color: #0dc00d !important;
+    }
+
+    h1 {
+      color: #323232;
+      font-weight: 300;
+      font-size: 24px;
+      animation: 0.6s ease-out 0s 1 slideInFromUp;
+
+    }
+
+    .alert {
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+    }
+
+    .alert-success {
+      color: #3c763d;
+      background-color: #dff0d8;
+      border-color: #d6e9c6;
+    }
+
+    .alert-danger {
+      color: #a94442;
+      background-color: #f2dede;
+      border-color: #ebccd1;
+    }
+
+    a.perdeu_a_senha {
+      font-size: 13px;
+      color: #323232;
+      text-decoration: none;
+      font-weight: 300;
+    }
+
+    a.perdeu_a_senha:hover {
+      opacity: 0.8;
+    }
+
+    .ps {
+      width: 100%;
+      text-align: right;
+    }
+
+    @keyframes slideInFromDown {
+      0% {
+        transform: translateY(100%);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInFromUp {
+      0% {
+        transform: translateY(-300%);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    a.cadastroBtn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #009d00;
+    margin: 30px 0;
+    transition: 0.3s;
+    border-radius: 5px;
+    color: white;
+}
+a.cadastroBtn:hover{
+  background-color: #0dc00d !important;
+    border-color: #0dc00d !important;
+}
+  </style>
+</head>
+
+<body>
+  <h1 style="color:white;">Faça o login na sua conta</h1>
+  <form method="POST" id="loginForm" name="loginForm" action="./.netlify/functions/login">
+    <div class="photoCourse">
+      <img src="img/logo.png">
+    </div>
+    
+    <div class="ajax-return"></div>
+    <input type="email" id="email" aria-describedby="Email" placeholder="Coloque seu email..." name="usuario" value="">
+    <input type="password" id="senha" placeholder="Coloque sua senha" name="senha" value="">
+    <input type="hidden" name="redURL" id="redURL" value="">
+
+
+    <input type="hidden" name="trackSms" id="trackSms" value="">
+
+
+
+    <div class="ps">
+      <a href="./recuperar-senha" class="perdeu_a_senha">Perdeu a senha?</a>
+    </div>
+    <button type="submit" class="btn" id="senddf">
+      Entrar
+    </button>
+  </form>
+
+  <a href="./cadastro" class="cadastroBtn" style="font-size: 16px;font-weight:bold;text-decoration: none;">Quero me cadastrar</a>
+
+<!-- 
+  <div id="CHATPAGEBOLETIZZE">
+    <style>
+      #whatsappb {
+        position: fixed !important;
+        bottom: 45px !important;
+        right: 5px !important;
+        z-index: 9999999 !important;
+        background: transparent !important;
+        line-height: 18px !important;
+      }
+
+      .b-whatsapp {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        height: 50px !important;
+        width: 50px !important;
+        background-color: #19ae7b !important;
+        animation: 1 !important;
+        border-radius: 90px !important;
+        border: solid 4px rgba(255, 255, 255, .2) !important;
+        z-index: 9999 !important;
+        transition: .3s !important;
+        margin: 3px 0px !important;
+        box-sizing: unset !important;
+      }
+
+      .ic-whatsapp {
+        margin-left: 6px !important;
+        margin-right: 6px !important;
+        width: 20px !important;
+        height: 20px !important;
+      }
+
+      .menssager {
+        background: #0078ff !important;
+      }
+
+      .instagram {
+        background: #d6249f !important;
+      }
+
+      .telegram {
+        background: #0087cc !important;
+      }
+
+      .b-whatsapp:hover {
+        opacity: 0.8 !important;
+        transition: 0.3s !important;
+      }
+
+      #whatsappb:before {
+        content: 'Precisa de ajuda?' !important;
+        position: fixed !important;
+        bottom: 5px !important;
+        right: 0px !important;
+        background: white !important;
+        padding: 10px !important;
+        border-radius: 20px 0px 0px 20px;
+        font-size: 13px !important;
+      }
+    </style>
+    <div id="whatsappb" style="display:block">
+      <a href="https://api.whatsapp.com/send/?phone=5599991013087&text=Ol%C3%A1+estou+no+login+do+Mega+F%C3%A1cil+e+preciso+de+ajuda%21&type=phone_number&app_absent=0" target="_blank">
+        <div class="b-whatsapp">
+          <img class="ic-whatsapp" src="https://app.blackads.com.br/img/icones/whatsapp.svg">
+        </div>
+      </a> -->
+
+
+
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script type="text/javascript">
+    $('#loginForm').on('submit', function(e) {
+      e.preventDefault();
+      var data = $(this).serialize();
+      var btnSubmit = $(".btn");
+      $.ajax({
+        type: 'POST',
+        url: '/.netlify/functions/login',
+        data: data,
+        dataType: 'json',
+        beforeSend: function() {
+          btnSubmit.html("Validando...");
+          btnSubmit.attr("disabled", 'disabled');
+        },
+        success: function(response) {
+          if (response.codigo == "1") {
+            btnSubmit.html('Entrando...');
+            $(".ajax-return").html('');
+            $(".ajax-return").html('<div class="alert alert-success" role="alert">' + response.mensagem + '</div>');
+            $(".ajax-return").slideDown();
+
+            setTimeout("location.href = '" + response.url + "';", 1500);
+          } else {
+            btnSubmit.html("Entrar");
+            btnSubmit.removeAttr('disabled');
+            $(".ajax-return").html('');
+            $(".ajax-return").html('<div class="alert alert-danger" role="alert">' + response.mensagem + '</div>');
+            $(".ajax-return").slideDown();
+          }
+        }
+      });
+    })
+
+
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/serviceWorker.js")
+        .then(registration => {
+          console.log("Service Worker is registered", registration);
+        })
+        .catch(err => {
+          console.error("Registration failed:", err);
+        });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,1603 @@
+:root {
+	--primary-color: #6515DD;
+	--primary-green: #3E9C35;
+}
+
+body {
+	background: #f1f1f1;
+	font-family: 'Poppins', sans-serif;
+}
+
+header .container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 0;
+}
+
+header .logo img {
+	width: 100%;
+	height: auto;
+	max-width: 100px;
+}
+
+.disabled {
+	opacity: 0.3;
+}
+
+img.logo-brand-small {
+	width: 100px;
+}
+
+div.loteria-select > .loteria-select {
+	cursor:pointer;
+	transition: 0.3s;
+}
+
+div.loteria-select > .loteria-select:hover {
+	transition: 0.3s;
+	animation: pulse-animation 1.5s infinite;
+}
+
+.form-check-input:checked {
+	background-color: var(--primary-color)!important;
+	border-color: var(--primary-color)!important;
+}
+
+.perfil a.perfilbutton {
+	background: #6515DD;
+	width: 60px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100%;
+}
+
+.text-gray-300 {
+	color: black;
+	font-weight: 300;
+}
+
+.text-gray-500 {
+	font-weight: 500;
+}
+
+.fz-18 {
+	font-size: 18px;
+}
+
+.text-gray-600 {
+	color: black;
+	font-weight: 600;
+}
+
+.text-gray-800 {
+	color: black;
+	font-weight: 600;
+	font-size: 24px;
+}
+
+.selectMethod {
+    padding: 0 0 10px 0;
+    display: flex;
+}
+
+.selectMethod .method {
+    padding: 10px 10px;
+    background: #eee;
+    margin: 0px 10px 0 0;
+    border: 1px solid #c7c7c7;
+    border-radius: 8px;
+    width: 50%;
+    display: block;
+	cursor: pointer;
+	transition:0.3s;
+}
+
+div#loaderPayment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	padding: 20px 0;
+}
+
+.paymentPix {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+	flex-direction: column;
+}
+
+.paymentPix img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 0 20px;
+    border-radius: 18px;
+}
+.qrcodeInput {
+    width: 100%;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+	max-width: 500px;
+
+}
+.despositChoose{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.paymentFields{
+	max-width: 500px;
+    width: 100%;
+}
+
+.selo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.selo img {
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+    margin-top: -10px;
+    margin-bottom: 5px;
+}
+span.copyQrcode {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    height: 36px;
+    background: black;
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
+}
+span.copyQrcode svg{
+    fill: white;
+    width: 40px;
+    height: 20px;
+}
+
+.qrcodeInput input {
+    width: 85%;
+    border: 1px solid #c7c7c7;
+    padding: 8px 10px;
+    font-size: 12px;
+    color: black;
+	border-radius: 10px 0 0px 10px;
+}
+
+.tipsPix{
+	margin: 10px 0;
+}
+
+.usuario {
+    display: flex;
+    flex-direction: column;
+}
+
+.usuario span {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.usuario span i {
+    margin-right: 6px;
+}
+
+.usuario span .badge {
+    font-size: 0.75em!important;
+}
+span.copiar_linkcp {
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+}
+
+
+
+div#loaderPayment svg {
+    width: 150px;
+}
+div#loaderPayment span {
+    font-weight: bold;
+}
+
+span.method.selected {
+    background: #6515DD;
+    color: white;
+}
+
+span.method.selected svg, span.method.selected svg path {
+	fill:white;
+}
+.resultados-loto {
+	border-radius: 30px;
+	padding: 0 10px;
+	color: white;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.resultados-loto span {
+	background: #6515DD;
+	color: white;
+	width: 60px;
+	height: 60px;
+	display: inline-flex;
+	font-size: 24px;
+	font-weight: 800;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	margin: 10px;
+}
+
+div#menu {
+	background: #6515DD;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	bottom: 0px;
+	width: 100%;
+	border-radius: 0;
+	padding: 10px 0;
+	z-index: 999;
+}
+
+div#menu ul {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	margin-left: 0;
+	list-style: none;
+	padding-left: 0px;
+	margin: 20px 0;
+	width: 100%;
+}
+
+div#menu ul li .menu-item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+}
+
+div#menu ul li {
+	margin: 0 30px;
+	cursor: pointer;
+}
+
+div#menu ul li .menu-item .icon {
+	border: 2px solid white;
+	width: 60px;
+	padding: 10px;
+	height: 60px;
+	border-radius: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+div#menu ul li .menu-item span {
+	font-weight: 400;
+}
+
+.sub-menu {
+	position: absolute;
+	top: -35px;
+	padding: 0px;
+	transform: translate(-40%, -50%);
+}
+
+.sub-menu ul {
+	align-items: center !important;
+	justify-content: center !important;
+	text-align: center;
+	margin: 10px 0 !important;
+	flex-direction: column;
+}
+
+.sub-menu ul li {
+	margin: 8px 20px !important;
+	background: white;
+	width: 100%;
+	border-radius: 30px;
+	padding: 10px 20px;
+}
+
+.sub-menu ul li:hover {
+	transition: 0.3s;
+	background: #f55a2e;
+	color: white;
+}
+
+.sub-menu ul li a {
+	color: black;
+	text-decoration: none;
+}
+
+.sub-menu ul li a:hover {
+	opacity: 0.8;
+}
+
+table.info {
+	table-layout: fixed;
+	border-collapse: collapse;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(245, 245, 245, 1) 100%);
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	width: 100%;
+	text-align: center;
+	color: black;
+	border-radius: 20px;
+
+}
+
+.oculto div {
+	display: block !important;
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	padding-top: 25px;
+	width: 72%;
+	z-index: 100;
+	text-align: center;
+	color: black;
+	font-weight: 700;
+}
+
+.oculto tr:first-child {
+	opacity: .5;
+}
+
+.oculto tr {
+	opacity: .15;
+}
+
+.oculto td {
+	-webkit-filter: blur(3px);
+	-moz-filter: blur(3px);
+	-ms-filter: blur(3px);
+	filter: blur(3px);
+}
+
+div#simulador {
+	position: relative;
+}
+
+div#simulador table tr th {
+	background: #a30088;
+	color: white;
+	font-weight: 300;
+}
+
+.padding-menu-fix {
+	padding-bottom: 20px;
+}
+
+tr.header-table {
+	opacity: 1 !important;
+	overflow: hidden;
+	border-radius: 40px;
+}
+
+.numeros_apostas {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+
+#geraApostas small {
+	font-size: 14px;
+	text-align: right;
+	padding-left: 7px;
+	padding-right: 0px;
+}
+
+#gerarForm {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.numeros_apostas span {
+	width: 50px;
+	background: white;
+	height: 50px;
+	color: #6515DD;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	font-size: 24px;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+
+span.as {
+	background: #6515DD !important;
+	color: white !important;
+}
+
+.botao_new {
+	background: #3E9C35;
+	border: 0px;
+	border-radius: 100px;
+	padding: 10px 30px;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.re-apostas.resultado {
+	border-radius: 30px;
+	padding: 0px;
+	color: white;
+	display: flex;
+	align-items: center;
+}
+
+.re-apostas.resultado span {
+	background: white;
+	color: #6515DD;
+	width: 50px;
+	height: 50px;
+	display: inline-flex;
+	font-size: 24px;
+	font-weight: 800;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	margin: 10px;
+}
+
+h1.h3.text-gray-800 {
+	font-weight: 400;
+	font-size: 20px;
+}
+
+p.text-gray-800 {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+button#salvarJogos {
+	width: 100%;
+	background: #a30088;
+	border: 0px;
+	border-radius: 100px;
+	font-size: 16px;
+	font-weight: 300;
+}
+
+button#exportarExcel {
+	background: #009d00;
+	color: white;
+	border: 0px;
+	border-radius: 100px;
+	font-size: 16px;
+	font-weight: 300;
+	width: 100%;
+}
+
+.aposta {
+	border-radius: 20px;
+	margin: 0px 0 10px;
+}
+
+
+
+td.as span {
+	border: 3px solid transparent;
+}
+
+.aposta:hover td.as span {
+	border: 3px solid white;
+	transition: 0.3s;
+}
+
+table.numeros-aposta.aposta {
+	margin: 0px;
+	width: 100%;
+	caption-side: top;
+	text-align: center;
+	margin-bottom: 0px !important;
+}
+
+table.numeros-aposta.aposta caption {
+	text-align: center;
+	color: white;
+}
+
+table.numeros-aposta.aposta td span {
+	margin: 10px;
+	background: #ebebeb;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 40px;
+	margin: 5px;
+	width: 64px;
+	height: 64px;
+	font-size: 24px;
+	font-weight: 600;
+}
+
+td.as span {
+	background: #6515DD !important;
+	color:white!important;
+}
+
+td.as span.premio {
+    background: #28a745!important;
+    color: white!important;
+}
+
+.aposta-paga span {
+    padding: 3px 10px;
+    margin: 5px 0;
+    background: #c9dbce;
+    display: inline-flex;
+    border-radius: 40px;
+    font-weight: bold;
+    font-size: 12px;
+    color: black;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.aposta-paga span a {
+    color: black;
+    margin: 0 5px;
+    font-weight: 700;
+}
+
+button#mostrarApostas {
+	margin: 20px auto;
+	display: block;
+	background: #009d00;
+	border: 0px;
+	border-radius: 100px;
+	padding: 10px 50px;
+	font-weight: 300;
+}
+
+button:hover {
+	opacity: 0.8;
+	transition: 0.3s;
+}
+
+form#conferirResults {
+	display: flex;
+	align-items: center;
+}
+
+button#conferirResultado {
+	background: #a30088;
+	color: white;
+	border: 0px;
+	border-radius: 100px;
+	font-size: 16px;
+	font-weight: 300;
+	width: 100%;
+	margin: 0px 0 0 15px;
+}
+
+.aposta.res span {
+	background: white;
+	padding: 10px;
+	margin: 5px;
+	display: inline-block;
+	border-radius: 60px;
+	width: 40px;
+	height: 40px;
+	font-weight: 600;
+}
+
+.aposta.res p {
+	color: white;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.aposta.res {
+	display: inline-block;
+	flex-wrap: wrap;
+	padding: 20px 100px !important;
+}
+
+span.ac {
+	background-color: #34a853 !important;
+}
+
+.aposta-acertos {
+	text-align: center;
+	width: 100%;
+	display: block;
+	padding: 8px;
+}
+
+.aposta-conferencia {
+	margin: 5px 0;
+	background: #a30088;
+	padding: 8px;
+	border-radius: 50px;
+}
+
+.aposta-conferencia .num {
+	width: 30px;
+	height: 30px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 110px;
+	background: #eee;
+	margin: 0px 1px;
+}
+
+.aposta-acertos .info {
+	display: block;
+	margin: 0;
+	border-radius: 50px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.aposta-acertos .info b {
+	margin: 0 5px;
+}
+
+.numeros_apostas.botao .ac {
+	background: #6515DD !important;
+	color: white !important;
+}
+
+.re-apostas.resultado .ac {
+	background: #6515DD !important;
+	color: white !important;
+}
+
+.mais-rastreador {
+	background: #e6e6e6;
+	padding: 20px;
+	display: block;
+	border-radius: 60px;
+}
+
+.aposta-rastreador td span {
+	width: 35px;
+	height: 35px;
+	display: flex;
+	padding: 15px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 60px;
+	text-align: center;
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+tr.aposta-rastreador td b {
+	color: white;
+	font-weight: bold;
+}
+
+.botao_rast {
+	width: 100%;
+	background: transparent;
+	border: 1px solid #009d00;
+	border-radius: 100px;
+	padding: 10px 30px;
+	font-size: 18px;
+	font-weight: 400;
+	color: black;
+}
+
+.botao_rast.ativo {
+	width: 100%;
+	color: white;
+	background: #009d00;
+	border: 1px solid #009d00;
+	border-radius: 100px;
+	padding: 10px 30px;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.menu-item:hover .icon {
+	transition: 0.3s;
+	background: white;
+	color: black;
+}
+
+.menu-item:hover .icon img {
+	filter: invert(1);
+}
+
+button.close {
+	background: #6515DD;
+	border: 2px solid #6515DD;
+	border-radius: 40px;
+	width: 40px;
+	height: 40px;
+	color: white;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+button.close span {
+	font-size: 18px;
+}
+
+ul.list-group.list-group-flush a {
+	text-decoration: none;
+}
+
+ul.list-group.list-group-flush a b {
+	color: #a30088;
+}
+
+div#menu ul li.ativo a .icon {
+	background: white;
+}
+
+div#menu ul li.ativo a .icon img {
+	filter: invert(1);
+}
+
+div#menu.menu-open {
+	height: 60%;
+	
+}
+
+div#menu.menu-open ul li {
+	display: block;
+}
+
+div#menu ul li img {
+	width: 100%;
+	height: auto;
+}
+
+div#menu.menu-open ul {
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.cardItem {
+	background: #f7f7f7;
+	border-radius: 10px;
+	padding: 10px 17px;
+}
+
+.mobile-item {
+	display: none;
+}
+
+.credito_header {
+	color: black;
+	font-weight: bold;
+	width: 130px;
+	height: 40px;
+	padding-right: 20px;
+	margin-right: -30px;
+	background: #3E9C35;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 20px;
+	color: white;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+
+.credito_header:hover {
+
+	color: white;
+	background: #30d221;
+
+
+}
+
+.perfil {
+	display: flex;
+	align-items: center;
+}
+
+a.jogo {
+	background: #e5e5e5;
+	display: block;
+	padding: 10px;
+	border-radius: 8px;
+	text-decoration: none;
+	color: black;
+	margin-bottom: 20px;
+
+}
+
+
+div.jogo {
+	background: #e5e5e5;
+	display: block;
+	padding: 10px;
+	border-radius: 8px;
+	text-decoration: none;
+	color: black;
+	margin-bottom: 20px;
+
+}
+
+.jogoResultado {
+	background: #e5e5e5;
+	display: block;
+	padding: 10px;
+	border-radius: 8px;
+	text-decoration: none;
+	color: black;
+	margin-bottom: 20px;
+
+}
+
+.status-jogo {
+	font-size: 12px;
+	padding: 3px 8px;
+	margin: 3px 0;
+	background: #c1c1c1;
+	display: inline-flex;
+	border-radius: 40px;
+	font-weight: bold;
+}
+
+.status0 {
+	background: bisque;
+}
+
+.status1 {
+	background: #dc3545;
+	color: white;
+}
+
+.status2 {
+	background: #28a745;
+	color: white;
+}
+
+
+
+
+
+.dezenas {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.dezenas span {
+	width: 30px;
+	height: 30px;
+	margin: 5px 5px 5px 0px;
+	background: #6515DD;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	color: white;
+	font-weight: 700;
+}
+
+.concurso {
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+}
+
+.jogo-realizado {
+	display: flex;
+	align-items: center;
+	margin: 5px 0;
+}
+
+.jogo-realizado span {
+	margin-left: 5px;
+	margin-bottom: 0px;
+	padding-bottom: 0;
+	font-size: 14px;
+}
+
+.concurso small {
+	font-size: 12px;
+	font-weight: 600;
+	margin-right: 5px;
+}
+
+.cardItem.aviso-chave {
+    background: #ffd966e0;
+}
+.cardItem.aviso-chave span a{
+	color: black;
+}
+
+.cardItem.aviso-saldo{
+	background: #d7e3ef;
+}
+.cardItem.aviso-saldo span a{
+	color:black;
+}
+.saldoCard.saldototal {
+    background: #6515dd;
+    padding: 10px 8px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+.saldoCard.saldodisponivel {
+    background: #5CB85C;
+    padding: 10px 8px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+.saldoCard.saldobonus {
+    background: #000000;
+    padding: 10px 8px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.saldoCard.saldodepositado {
+    background: #0D6EFD;
+    padding: 10px 8px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+
+.saldoCard.saldototal h6 {
+}
+.ver_boleto{
+	display: inline-block;
+    margin: 5px 0 7px;
+    color: black;
+    background: #28a745;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
+    border-radius: 6px;
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+	transition:0.3s;
+}
+
+.ver_boleto:hover{
+	opacity: 0.8;
+	color:white;
+}
+
+a.check_pay{
+	display: inline-block;
+margin: 5px 0 7px;
+color: black;
+background: #28a745;
+padding: 5px 10px;
+text-transform: uppercase;
+color: black;
+font-weight: bold;
+border-radius: 6px;
+font-size: 10px;
+text-decoration: none;
+color: white;
+transition: 0.3s;
+}
+
+a.check_pay:hover{
+opacity: 0.8;
+color:white;
+}
+
+.gfixos {
+    display: flex;
+}
+
+.gfixos .min {
+    margin-right: 5px;
+}
+
+.gfixos .max{
+	margin-left: 5px;
+}
+
+
+.concursoTable h4 {
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    background: #6515dd;
+    color: white;
+    padding: 3px 0;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.ganhadores_lista table {
+    border-radius: 0px 0px 20px 20px;
+    margin-bottom: 20px;
+    margin-top: 0px!important;
+
+}
+
+.saldoDisponivelCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.saldoDisponivelCard .saldoCard {
+    width: calc((100% / 3) - 15px );
+    margin: 0 10px 10px;
+}
+.tutorial img {
+    width: 100%;
+    height: 220px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.tutorial h4 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin: 7px 0;
+}
+
+.tutorial span {
+    font-size: 12px;
+    text-align: center;
+    display: block;
+}
+
+.tutorial {
+    background: #eee;
+    padding: 10px;
+    border-radius: 15px;
+	cursor:pointer;
+}
+
+.tutorialModal h3 {
+    color: #212529;
+    font-weight: bold;
+    margin: 0 0 15px;
+    text-align: center;
+}
+.tutorialModal iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    border-radius: 5px;
+}
+.swal-wide {
+    width: 750px !important;
+}
+
+h2#swal2-title {
+    color: black!important;
+}
+
+div#swal2-html-container {
+    color: black!important;
+}
+div#loaderPayment svg path {
+    fill: #6515DD!important;
+}
+button.swal2-confirm.swal2-styled {
+    background: #6515DD!important;
+    border-radius: 10px!important;
+}
+
+button.swal2-cancel.swal2-styled {
+    border-radius: 10px!important;
+}
+
+/*RASPADINHAS*/
+/**/
+span.dezena.raspadinha {
+    width: auto!important;
+    height: auto!important;
+    border-radius: 10px!important;
+    padding: 6px!important;
+    font-size: 12px!important;
+}
+
+
+.probabilidade_raspadinha_wrapper {
+    background: #e2e2e2;
+    padding: 10px;
+    border-radius: 10px;
+	position: relative;
+
+}
+
+
+.banners_wrapper {
+    background: #e2e2e2;
+    padding: 10px;
+    border-radius: 10px;
+	position: relative;
+
+}
+
+.jogoCriados.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+.hotnew{
+	position: relative;
+}
+
+@keyframes scaleHot {
+    0% {
+      scale: 1;
+    }
+
+    50% {
+      scale: 1.2;
+    }
+
+    100% {
+      scale: 1;
+    }
+  }
+.hotnew:after {
+    content: 'JOGUE AGORA';
+    position: absolute;
+    font-size: 10px;
+    bottom: -5px;
+    right: -12px;
+    background: #3e9c35;
+    border-radius: 40px;
+    padding: 1px 3px;
+    color: white;
+    animation: 1.5s scaleHot infinite;
+    width: 80px;
+}
+
+a.banner-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+	-webkit-appearance: none;
+	appearance: none;
+	background: transparent;
+	cursor: pointer;
+	width: 100%;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+outline: none;
+}
+
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+background-color: #c7c7c7;
+border-radius: 2rem;
+height: 1rem;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+-webkit-appearance: none; /* Override default look */
+appearance: none;
+margin-top: -8px; /* Centers thumb on the track */
+background-color: #6515dd;
+border-radius: 3rem;
+height: 2rem;
+width: 2rem;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+outline: 3px solid #6515dd;
+outline-offset: 0.125rem;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+background-color: #c7c7c7;
+border-radius: 2rem;
+height: 1rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+background-color: #6515dd;
+border: none; /*Removes extra border that FF applies*/
+border-radius: 3rem;
+height: 2rem;
+width: 2rem;
+}
+
+input[type="range"]:focus::-moz-range-thumb{
+outline: 3px solid #6515dd;
+outline-offset: 0.125rem;
+}
+
+.cota_bolao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    padding: 0 70px;
+}
+
+span.cota_escolhida {
+	font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+	margin: 0px 0 5px;
+
+}
+
+.participacaoContainer .cota_bolao {
+    width: 100%;
+}
+
+.bolao_dezenas_wrapper{
+	padding: 15px;
+
+}
+
+.slick-next:before, .slick-prev:before{
+	color: #6515dd!important;
+}
+.participacaoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+span.cota_escolhida small {
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+
+/* BOLAO */
+button.ver_jogos_btn {
+	background-color: var(--primary-color);
+}
+
+div.progress.bolao-cotas-progress {
+	background-color: darkgray;
+}
+
+div.progress.bolao-cotas-progress > div.qtdProgress {
+	color: white;
+}
+
+div.progress.bolao-cotas-progress > div.bolao-cotas-progress-bar {
+	background-color: var(--primary-green);
+}
+
+
+
+/**/
+
+/**RESPONSIVE**/
+@media only screen and (max-width:1380px) {
+	div#menu ul li {
+		margin: 0 10px;
+	}
+
+	/* table.numeros-aposta.aposta td span {
+		margin: 5px;
+
+	} */
+}
+
+@media only screen and (max-width:1203px) {}
+
+@media only screen and (max-width :1368px) {
+	div#menu ul li {
+		margin: 0 10px;
+	}
+
+	/* table.numeros-aposta.aposta td span {
+		margin: 5px;
+	} */
+
+	/* table.numeros-aposta.aposta td span{
+		width: 18px!important;
+		height: 18px!important;
+	} */
+}
+
+@media only screen and (max-width: 988px) {
+
+	table.numeros-aposta.aposta td span {
+		width: 44px;
+		height: 44px;
+	}
+
+	div#menu ul{
+		flex-wrap: wrap;
+
+	}
+}
+
+@media only screen and (max-width: 767px) {
+
+	.saldoDisponivelCard{
+		flex-wrap: wrap;
+	}
+	.saldoDisponivelCard .saldoCard{
+		    width: 100%;
+
+	}
+
+	table.numeros-aposta.aposta td span {
+		width: 70px;
+		height: 70px;
+		font-size: 26px;
+
+	}
+
+	.selectMethod{
+		flex-direction: column;
+
+	}
+	.selectMethod .method{
+		width: 100%;
+		margin: 5px 0px;
+	}
+
+	a.banner-item img{
+		width: 100%!important;
+    height: 100%!important;
+    object-fit: contain!important;
+    border-radius: 10px!important;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+
+	table.numeros-aposta.aposta td span {
+		width: 50px;
+		height: 50px;
+		font-size: 24px;
+
+	}
+}
+
+@media only screen and (max-width: 420px) {
+
+	span.fazerTeimosinha{
+		font-size: 10px;
+
+	}
+	span.fazerTeimosinha img{
+		width: 14px;
+    height: 14px;
+    
+	}
+}
+
+@media only screen and (max-width: 350px) {
+
+	table.numeros-aposta.aposta td span {
+		width: 40px;
+		height: 40px;
+		font-size: 18px;
+
+	}
+}
+
+@media only screen and (max-width: 300px) {
+
+	table.numeros-aposta.aposta td span {
+		width: 30px;
+		height: 30px;
+		font-size: 16px;
+
+	}
+}
+
+@media only screen and (max-width: 990px) {
+	.resultados-loto {
+		flex-wrap: wrap;
+	}
+}
+
+@media only screen and (max-width:768px) {
+	.mbfix{
+		margin-bottom: 13px;
+	}
+}
+
+@media only screen and (max-width:620px) {
+	.numeros_apostas {
+		justify-content: center;
+	}
+
+	button#geraApostas {
+		margin: 0 auto;
+		display: block;
+	}
+
+	.oculto div {
+		padding-top: 90px;
+	}
+
+	.re-apostas.resultado {
+		flex-wrap: wrap;
+	}
+
+	button#conferirResultado {
+		margin: 10px 0px;
+	}
+
+	form#conferirResults {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.aposta-conferencia {
+		margin: 4px 0;
+		background: #a30088;
+		padding: 20px;
+		border-radius: 50px;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.aposta-conferencia .num {
+		margin: 3px;
+		font-size: 18px;
+		font-weight: 600;
+		width: 40px;
+		height: 40px;
+	}
+
+	.aposta-acertos .info {
+		display: block;
+		margin: 0;
+		border-radius: 50px;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px 0;
+		font-weight: 700;
+	}
+
+	.aposta.res {
+		padding: 20px 40px !important;
+	}
+
+	div#menu ul li {
+		display: none;
+	}
+
+	div#menu ul li.ativo {
+		display: block;
+	}
+
+	.sub-menu ul li {
+		display: block !important;
+	}
+
+	li.mobile-item {
+		display: block !important;
+	}
+
+	.mais-rastreador {
+		background: transparent !important;
+
+	}
+
+}
+
+@media only screen and (max-width:520px) {
+
+
+	header {
+		padding: 0px 10px;
+	}
+
+	.resultados-loto {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+
+@media only screen and (max-width:420px) {}
+
+@media only screen and (max-width:400px) {}
+
+@media only screen and (max-width:320px) {}
+
+
+/* ANIMATIONS */
+@keyframes pulse-animation {
+	0% {
+	  transform: scale(1);
+	}
+	50% {
+	  transform: scale(1.2);
+	}
+	100% {
+	  transform: scale(1);
+	}
+  }
+/**/
+
+/* BOOTSTRAP OVERRIDE */
+/* .flex-direction-column {
+	flex-direction: column!important;
+}
+.flex-direction-row {
+	flex-direction: row!important;
+}
+
+@media only screen and(min-width: 768px) {
+	.flex-column-md {
+		flex-direction: column!important;
+	}
+	.flex-row-md {
+		flex-direction: row!important;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.flex-column-sm {
+		flex-direction: column!important;
+	}
+	.flex-row-sm {
+		flex-direction: row!important;
+	}
+} */
+/**/

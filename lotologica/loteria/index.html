@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Loteria Mega Fácil</title>
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script>
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            msViewportStyle.appendChild(
+                document.createTextNode(
+                    "@-ms-viewport{width:device-width}"
+                )
+            );
+            document.getElementsByTagName("head")[0].
+            appendChild(msViewportStyle);
+        }
+    </script>
+
+    <link rel="stylesheet" href="loteria/css/normalize.css">
+    <link rel="stylesheet" href="loteria/css/main.css">
+    <script src="loteria/js/vendor/modernizr-2.6.2.min.js"></script>
+
+    <style>
+        div#info_bar {
+            position: absolute;
+            left: 0px;
+            top: -10px;
+            z-index: 99999999999999999999999999999999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        div#saldo {
+            z-index: 99999999999999999999999999999999999;
+            background: #30d221;
+            padding: 15px 13px 4px;
+            color: white;
+            font-weight: bold;
+            border-radius: 0px 0px 20px 20px;
+            font-size: 16px;
+            border: 3px solid #e0e0e3;
+            margin: 0 3px;
+
+        }
+
+        div#entrada {
+            z-index: 99999999999999999999999999999999999;
+            background: #650ee8;
+            padding: 15px 13px 4px;
+            color: white;
+            font-weight: bold;
+            border-radius: 0px 0px 20px 20px;
+            font-size: 16px;
+            border: 3px solid #e0e0e3;
+            margin: 0 3px;
+
+        }
+
+        span.saldo_desc {
+            font-size: 12px;
+        }
+
+        div#sair {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 24px;
+            color: white;
+            background: #650ee8;
+            border-radius: 70px;
+            width: 34px;
+            height: 34px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #e0e0e3;
+            z-index: 9999999999999999999999999;
+        }
+
+        div#sair a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- PERCENT LOADER START-->
+    <div id="mainLoader"><img src="loteria/assets/loader.png" /><br><span>0</span></div>
+    <!-- PERCENT LOADER END-->
+
+    <!-- CONTENT START-->
+    <div id="mainHolder">
+        <!-- <div id="sair">
+            <a href="/painel">
+                X
+            </a>
+        </div> -->
+
+        <!-- BROWSER NOT SUPPORT START-->
+        <div id="notSupportHolder">
+            <div class="notSupport">SEU NAVEGADOR NÃO É SUPORTADO.<br />ATUALIZE SEU NAVEGADOR PARA EXECUTAR O JOGO</div>
+        </div>
+        <!-- BROWSER NOT SUPPORT END-->
+
+        <!-- ROTATE INSTRUCTION START-->
+        <div id="rotateHolder">
+            <div class="mobileRotate">
+                <div class="rotateDesc">
+                    <div class="rotateImg"><img src="loteria/assets/rotate.png" /></div>
+                    Gire seu dispositivo <br />para paisagem
+                </div>
+            </div>
+        </div>
+        <!-- ROTATE INSTRUCTION END-->
+
+        <!-- CANVAS START-->
+        <div id="canvasHolder">
+
+            <div id="info_bar">
+                <div id="saldo">
+                    <span class="saldo_desc">Saldo:</span>
+                    <span class="moeda">
+                        R$ <span id="saldo_atual">0,00</span>
+                    </span>
+                </div>
+
+                <div id="entrada">
+                    <span class="saldo_desc">Entrada:</span>
+                    <span class="moeda">
+                        R$ <span id="">10,00</span>
+                    </span>
+                </div>
+            </div>
+
+            <canvas id="gameCanvas" width="1280" height="768"></canvas>
+        </div>
+        <!-- CANVAS END-->
+
+    </div>
+    <!-- CONTENT END-->
+
+    <script src="../cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
+    <link href="../cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <script src="../ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="loteria/js/vendor/jquery.min.js"><\/script>')
+
+
+        var saldo_atual = 0;
+        var id_usuario = 127602;
+        var valor_entrada = 10;
+
+        var score_arr = [{
+                prize: 2,
+                percent: 10
+            },
+            {
+                prize: 50,
+                percent: 3
+            },
+            {
+                prize: 2500,
+                percent: 0
+            },
+            {
+                prize: 12000,
+                percent: 0
+            },
+            {
+                prize: 50000,
+                percent: 0
+            },
+            {
+                prize: 800000,
+                percent: 0
+            }
+        ];
+    </script>
+
+    <script src="loteria/js/vendor/detectmobilebrowser.js"></script>
+    <script src="loteria/js/vendor/createjs.min.js"></script>
+    <script src="loteria/js/vendor/TweenMax.min.js"></script>
+    <script src="loteria/js/vendor/p2.min.js"></script>
+
+    <script src="loteria/js/plugins.js"></script>
+    <script src="loteria/js/sound.js"></script>
+    <script src="loteria/js/canvas.js"></script>
+    <script src="loteria/js/p2.js"></script>
+    <script src="loteria/js/game.js"></script>
+    <script src="loteria/js/mobile.js@v=72919"></script>
+    <script src="loteria/js/main.js"></script>
+    <script src="loteria/js/loader.js"></script>
+    <script src="loteria/js/init.js"></script>
+
+    
+<script>
+
+function gerarValorFormatado() {
+    var valores = [50,2500,12000,50000]
+  var pos = Math.floor(Math.random() * 4);
+
+  const valorFormatado = valores[pos].toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  });
+
+  return valorFormatado;
+}
+
+    function setBuyNotifications() {
+    if ($('source[src*="notification_.mp3"').length <= 0) $('body').append(`<audio id="notification_sound"><source src="../app.blackads.com.br/blackbuilder/editor/assets/dependencies/audio/notification_.mp3.html" type="audio/mp3"></audio>`)
+   
+
+        var audio = document.querySelector('audio#notification_sound');
+
+        var styles = `<style>
+        .swal2-popup.swal2-toast.buy-notification-toast.swal2-icon-success.swal2-show {
+            background-color: #29AA1E!important;
+            border-radius: 8px;
+        }
+        i.buy-notification-icon {
+            font-size: 18px;
+            color: white;
+        }
+        h2.swal2-title.buy-notification-toast-title {
+            color: white!important;
+        }
+        </style>`
+
+        $('head').append(styles);
+
+        var names = { "ptBr": { "male": ["Rafael Santos", "Pedro Almeida", "Luiz Silva", "João Oliveira", "Fernando Rodrigues", "Luis Martins", "Carlos Ferreira", "Miguel Souza", "Bruno Pereira", "José Lima", "André Barbosa", "Gustavo Cardoso", "Mateus Gomes", "Vitor Alves", "Eduardo Rodrigues", "Lucas Costa", "Marcelo Ribeiro", "Leonardo Fernandes", "Daniel Moreira", "Thiago Castro", "Rodrigo Nunes", "Gabriel Marques", "Diego Carvalho", "Ricardo Vieira", "Antônio Pinto", "Felipe Correia", "Guilherme Mendes", "Emanuel Rocha", "Hugo Santos", "Cauã Barbosa", "Enzo Oliveira", "Otávio Pereira", "Davi Lima", "João Miguel Barbosa", "Bruno Lopes", "Erick Ferreira", "Leonardo Silva", "Thales Alves"], "female": ["Camila Costa", "Ana Ferreira", "Beatriz Souza", "Luisa Pereira", "Maria Gonçalves", "Isabella Oliveira", "Sophia Santos", "Emily Almeida", "Amanda Silva", "Gabriela Rodrigues", "Larissa Martins", "Juliana Lima", "Mariana Barbosa", "Nicole Cardoso", "Fernanda Gomes", "Rafaela Alves", "Clara Rodrigues", "Lívia Costa", "Alice Ribeiro", "Helena Fernandes", "Valentina Moreira", "Bianca Castro", "Luana Nunes", "Laura Marques", "Lorena Carvalho", "Yasmin Vieira", "Elisa Pinto", "Mariane Correia", "Eduarda Mendes", "Ana Luiza Rocha", "Isabelly Santos", "Carolina Barbosa", "Vitória Oliveira", "Isadora Pereira", "Letícia Lima", "Lavínia Barbosa", "Alícia Lopes", "Manuela Ferreira", "Eloá Silva"] }, "enEn": { "male": ["Daniel Smith", "John Johnson", "Robert Davis", "Michael Wilson", "David Anderson", "James Taylor", "William Brown", "Matthew Miller", "Benjamin Jones", "Joseph White", "Ethan Harris", "Samuel Martin", "Andrew Lewis", "Daniel Jackson", "Jack Adams", "Aiden Clark", "Henry Hall", "Oliver Turner", "Caleb Scott", "Alexander Wright", "Sebastian Walker", "Jackson Green", "Owen King", "Luke Hill", "Ryan Baker", "Nathan Murphy", "Nicholas Butler", "Matthew Young", "Liam Kelly", "Christopher Hayes", "Logan Reed", "Connor Price", "Thomas Morris", "Samuel Nelson", "John Edwards", "Jonathan Rivera", "Dylan Cooper", "Gabriel Wood", "Isaac Ward"], "female": ["Sophia Miller", "Ava Brown", "Olivia Taylor", "Emma Harris", "Emily Lewis", "Abigail Clark", "Grace Martin", "Charlotte Allen", "Amelia Turner", "Sophie Wright", "Harper Turner", "Evelyn Turner", "Ella Reed", "Scarlett Mitchell", "Lily Lewis", "Chloe Jackson", "Aria Adams", "Isabella King", "Mia Nelson", "Zoe Green", "Layla Scott", "Avery Davis", "Riley Murphy", "Sofia Ward", "Aubrey Kelly", "Hannah Butler", "Nora Hayes", "Leah Hall", "Eleanor Bennett", "Addison Young", "Victoria Cooper", "Zoey Rivera", "Madison Wright", "Brooklyn Mitchell", "Grace Anderson", "Madelyn Edwards", "Stella Morris", "Aaliyah Price", "Paisley Hill"] }, "esEs": { "male": ["Carlos López", "Antonio Pérez", "Luis García", "Juan Martínez", "Fernando Rodríguez", "Sergio González", "Javier Martín", "Joaquín Sánchez", "Miguel Pérez", "Manuel Rodríguez", "José García", "Alejandro López", "Adrián Castro", "Rafael Torres", "David Jiménez", "Víctor Ruiz", "Ángel Fernández", "Jorge Morales", "Pablo Ortega", "Santiago Ruiz", "Iván Navarro", "Roberto Romero", "Félix Herrera", "Daniel Silva", "Mario Vargas", "Francisco Medina", "Enrique Ramos", "Emilio Herrera", "Ignacio Castro", "Andrés Ortega", "Diego Mendoza", "José Antonio Morales", "Alvaro Jiménez", "Gonzalo Guerrero", "Cristian Soto", "Eduardo Castillo", "Juan Diego Romero", "Jesús Navarro"], "female": ["Maria Rodríguez", "Luisa Pérez", "Ana García", "Sofia Martínez", "Isabella López", "Marta González", "Paula Sánchez", "Laura Torres", "Carmen Jiménez", "Lucía Fernández", "Sara Ruiz", "Natalia Castro", "Rocío Morales", "Elena Navarro", "Valeria Herrera", "Andrea Ortega", "Clara Medina", "Silvia Ramos", "Alicia Silva", "Beatriz Vargas", "Cristina Romero", "Patricia Castillo", "Rosa Mendoza", "Nerea Guerrero", "Lorena Jiménez", "Alejandra Soto", "Victoria Herrera", "Judith Castro", "Adela Ortega", "Julia Morales", "Alba Navarro", "Antonia Romero", "Inés Ramos", "Leire Jiménez", "Aurora Pérez", "Manuela García", "Celia Martínez", "Lidia López"] } };
+
+        
+            let array = names['ptBr'].male.concat(names['ptBr'].female);
+            array.sort(() => Math.random() - 0.5)
+            names = array;
+        
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-start',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            iconHtml: '<svg style="width: 16px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>',
+            customClass: {
+                popup: 'buy-notification-toast',
+                content: 'buy-notification-toast-content',
+                title: 'buy-notification-toast-title',
+                icon: 'buy-notification-toast-icon'
+            },
+            onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        setInterval(function () {
+            const randomIndex = Math.floor(Math.random() * names.length);
+            var valorGerado = gerarValorFormatado();
+
+            Toast.fire({
+                icon: 'success',
+                title: names[randomIndex] + ' acaba de ganhar '+valorGerado,
+            })
+
+            if (audio) audio.play();
+        }, 12000)
+    
+}
+
+setBuyNotifications()
+
+
+</script>
+</body>
+
+
+</html>

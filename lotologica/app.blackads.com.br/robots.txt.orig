@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Login - Black Ads</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
+
+  <style type="text/css">
+  *{margin: 0px;padding: 0px;}
+  body{
+    font-family: 'Nunito', sans-serif;
+  }
+  .alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+    border-radius: 0 10px 10px 10px;
+  }
+  .alert-danger {
+    color: #78261f;
+    background-color: #fadbd8;
+    border-color: #f8ccc8;
+  }
+  .alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+  }
+  .autenticacao {
+    height: 100vh;
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: 0.7s ease-out 0s 1 slideInFromLeft;
+  }
+  .background-login {
+    background: url('//cdn.blackads.com.br/uploads/assets/img/bg-4-min.jpg');
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat; 
+    animation: 0.7s ease-out 0s 1 slideInFromUp;
+  }
+  form#login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .autenticacao .logo img {
+    width: 180px;
+    padding: 18px 0;
+  }
+
+  input.sent {
+    color: #0abfbc !important;
+    -webkit-transition: 2s all ease-in;
+    transition: 2s all ease-in;
+  }
+
+  .input-icon.sent {
+    color: #0abfbc !important;
+    -webkit-transition: 2.5s all ease-in;
+    transition: 2.5s all ease-in;
+  }
+
+  label {
+    color: rgba(255, 255, 255, 0.95);
+    margin-right: 0;
+    position: relative;
+    z-index: 0;
+    width: 90%;
+    margin: 8px 0;
+    display: flex;
+  }
+
+  input:focus {
+    color: #001A5D;
+  }
+
+  .input-icon {
+    position: absolute;
+    top: .75rem;
+    left: .65em;
+    z-index: 2;
+    font-size: 1.5em;
+    color: rgba(0, 0, 0, 0.25);
+    -webkit-transition: all .5s;
+    transition: all .5s;
+  }
+
+  input:focus + .input-icon {
+    color: black;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  input {
+    color: rgba(0, 0, 0, 0.87);
+    position: relative;
+    width: 100%;
+    height: 30px;
+    transition: color .5s cubic-bezier(.2,1,.2,1),background-color .5s cubic-bezier(.2,1,.2,1),border-color .5s cubic-bezier(.2,1,.2,1),box-shadow .5s cubic-bezier(.2,1,.2,1);
+    background-color: #fff;
+    border: 1px solid #dfe2e6;
+    border-radius: .1875rem;
+    box-shadow: 0 0 0 0 transparent;
+    color: #343a42;
+    display: block;
+    font-size: 1rem;
+    height: calc(2.25rem + 2px);
+    line-height: 1.5;
+    padding: .375rem .75rem .375rem 51px;
+    border-radius: 0 10px 10px 10px;
+
+  }
+  button.login-button {
+    background: black;
+    padding: 15px 30px;
+    border: 0px;
+    color: white;
+    border-radius: .375rem;
+    font-size: 16px;
+    margin: 18px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  button.login-button:hover {
+    background-color: #202020;
+  }
+  .group {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .group a{
+    margin-left: 18px;
+  }
+  .footer a {
+    font-size: 10px;
+  }
+  .text {
+    width: 100%;
+    padding-left: 30px;
+    margin: 5px;
+    color: #333333;
+  }
+  .ajax-return {
+    padding: 0 15px;
+  }
+  @media only screen and (max-width: 768px){
+    .background-login{
+      display: none;
+    }
+    .autenticacao{
+      width: 100%;
+    }
+    .text{
+      width: unset;
+      padding-left: 0px;
+    }
+  }
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-300%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideInFromUp {
+    0% {
+      transform: translateY(-300%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W168Z7SR3B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W168Z7SR3B');
+</script>
+</head>
+<body>
+  <div class="autenticacao">
+    <div class="logo">
+      <img src="https://app.blackads.com.br/img/new-logo.png?v=2">
+    </div>
+    <form id="login" method="POST">
+      <div class="text">
+        <h3>Efetue seu login abaixo:</h3>
+      </div>
+      <div class="ajax-return"></div>
+      <label for="usuario">
+        <input class="username" type="text" autocomplete="on" placeholder="Email" name="usuario" value="" />        
+        <i class="fas fa-at input-icon"></i>
+      </label>
+
+      <label>
+        <input class="password" type="password" autocomplete="off" placeholder="Senha" name="senha" value="" />
+        <i class="fas fa-key input-icon"></i>
+      </label>
+                  <input type="hidden" name="redURL" id="redURL" value="EB00lLptiJFs+yYsfqikGA==">
+      <div class="group">
+        <a href="https://blackads.com.br" style="text-decoration: none;color: #343a42; opacity: 0.9;">Não tenho uma conta</a>
+        <button class="login-button" type="submit">LOGIN</button>
+      </div>
+      <div class="footer">
+        <a href="esqueceu-a-senha" style="text-decoration: none; color: #343a42; opacity: 0.9;">Perdeu a senha?</a>
+      </div>
+    </form>
+  </div>
+
+  <div class="background-login"></div>
+
+</div>
+<script src="https://kit.fontawesome.com/23e337b82d.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $('#login').on('submit',function(e){
+    e.preventDefault();
+    var data = $(this).serialize();
+    var btnSubmit = $(".login-button");
+    $.ajax({
+      type : 'POST',
+      url  : '/db/login.php',
+      data : data,
+      dataType: 'json',
+      beforeSend: function(){   
+        btnSubmit.html("Validando...");
+        btnSubmit.attr("disabled", 'disabled');
+      },
+      success: function(response){                      
+        if(response.codigo == "1"){ 
+          btnSubmit.html('Entrando...');
+          $(".ajax-return").html('');
+          $(".ajax-return").html('<div class="alert alert-success" role="alert">'+response.mensagem+'</div>');
+          $(".ajax-return").slideDown();
+
+          setTimeout("location.href = '"+response.url+"';",1500);
+        }
+        else{           
+          btnSubmit.html("LOGIN");
+          btnSubmit.removeAttr('disabled');
+          $(".ajax-return").html('');
+          $(".ajax-return").html('<div class="alert alert-danger" role="alert">'+response.mensagem+'</div>');
+          $(".ajax-return").slideDown();
+        }
+      }
+    });
+  })
+</script>
+<!-- LGPD -->
+<script type="text/javascript" src="https://cdn.blackads.com.br/dist/lgpd.js" charset="UTF-8"></script>
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({"notice_banner_type":"simple","consent_type":"implied","palette":"dark","language":"pt","page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":""});
+});
+</script>
+<style>
+.termsfeed-com---palette-dark .cc-nb-changep {
+display:none;
+}
+.termsfeed-com---palette-dark .cc-nb-okagree {
+width: 100%;
+}
+.termsfeed-com---palette-dark.termsfeed-com---nb {
+background-color: black;
+}
+.termsfeed-com---palette-dark .cc-nb-title {
+color: white;
+}
+.termsfeed-com---palette-dark .cc-nb-text {
+color: white;
+}
+.termsfeed-com---palette-dark .cc-nb-okagree {
+background-color: #FFAF00;
+color: black;
+}
+</style>
+</body>
+</html>

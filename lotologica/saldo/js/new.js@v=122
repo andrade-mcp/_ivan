@@ -1,0 +1,63 @@
+(function ($) {
+	$.fn.simpleMenu = function (options) {
+		"use strict";
+		var $a = $(this),
+			$b = $(this).find('a').next();
+		$a.on('click', 'a', function (e) {
+			e.stopPropagation();
+			var $c = $(this).next().hasClass('sub-menu');
+			if ($c === true) {
+				e.preventDefault();
+				$('.sub-menu').slideUp()
+			}
+			$(this).next().slideToggle(300)
+				.parent().siblings().children('ul')
+				.not($(this).next()).hide()
+		}),
+			$(document).on('click', $b, function (e) {
+				$b.hide(200);
+			});
+	}
+}(jQuery));
+
+$.fn.extend({
+	toggleText: function (a, b) {
+		return this.text(this.text() == b ? a : b);
+	}
+});
+
+
+$('.simple-menu').simpleMenu();
+
+$(".mobile-item a").click(function (e) {
+	e.preventDefault();
+	$("div#menu .sub-menu").slideUp();
+	$("div#menu").toggleClass('menu-open');
+	$("div#menu .mobile-item .icon i").toggleClass('fa-times');
+
+	if ($("div#menu").hasClass('menu-open')) {
+		$(".mobile-item span").text('Fechar menu')
+	} else {
+		$(".mobile-item span").text('Ver mais opções')
+	}
+})
+
+function updateSaldo() {
+	$.ajax({
+		type: 'GET',
+		url: '/api/saldo',
+		success: function (response) {
+			if (response && response.saldo) {
+				$("#saldoUser").html(response.saldo);
+				$("#saldoUser").attr('data-saldo',response.saldoFloat);
+
+			}
+		}
+	});
+}
+
+function decodeHTMLEntities(str) {
+	const element = document.createElement('textarea');
+	element.innerHTML = str;
+	return element.value;
+}

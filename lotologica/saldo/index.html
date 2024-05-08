@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="robots" content="noarchive" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>
+		Saldo - Mega Fácil	</title>
+	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="../fonts.googleapis.com/css2@family=Poppins%253Aital,wght@0,100%3B0,200%3B0,300%3B0,400%3B0,500%3B0,600%3B0,700%3B0,800%3B0,900%3B1,100%3B1,200%3B1,300%3B1,400%3B1,500%3B1,600%3B1,700%3B1,800%3B1,900&amp;display=swap.css" rel="stylesheet">
+	<link href="../cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+	<link href="css/new.css@v=39.css" rel="stylesheet">
+	<link rel="favicon" href="../favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="../cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+	<link rel="stylesheet" type="text/css" href="../cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+	<link rel="manifest" href="manifest.json" />
+	<!-- ios support -->
+	<link rel="apple-touch-icon" href="../img/icons/72.png" />
+	<link rel="apple-touch-icon" href="../img/icons/96.png" />
+	<link rel="apple-touch-icon" href="../img/icons/128.png" />
+	<link rel=" apple-touch-icon" href="../img/icons/144.png" />
+	<link rel="apple-touch-icon" href="../img/icons/152.png" />
+	<link rel="apple-touch-icon" href="../img/icons/192.png" />
+	<link rel="apple-touch-icon" href="../img/icons/384.png" />
+	<link rel="apple-touch-icon" href="../img/icons/512.png" />
+	<meta name="apple-mobile-web-app-status-bar" content="#6515DD" />
+	<meta name="theme-color" content="#6515DD" />
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<div class="logo">
+				<a href="../painel">
+					<img src="img/logo.png">
+				</a>
+			</div>
+
+
+
+			<div class="perfil">
+
+				<a class="credito_header" href="../depositar">
+					<span id="saldoUser" data-saldo="0">R$
+						0,00					</span>
+				</a>
+
+				<a href="../perfil" class="perfilbutton">
+					<img src="img/new/profile.png">
+				</a>
+			</div>
+		</div>
+	</header>
+
+	<div id="menu" class="simple-menu">
+		<ul>
+			<li >
+				<a class="menu-item" href="../apostar">
+					<div class="icon">
+						<img src="img/new/apostar.png">
+					</div>
+					<span>Apostar</span>
+				</a>
+
+			</li>
+
+
+			<li >
+				<a class="menu-item" href="../apostas">
+					<div class="icon">
+						<img src="img/new/apostas.png">
+					</div>
+					<span>Minhas apostas</span>
+				</a>
+
+			</li>
+
+			<li >
+				<a class="menu-item" href="../depositar">
+					<div class="icon">
+						<img src="img/new/deposito.png">
+					</div>
+					<span>Recarregar</span>
+				</a>
+
+			</li>
+
+
+			<li >
+				<a class="menu-item" href="../resultados">
+					<div class="icon">
+						<img src="img/new/resultados.png">
+					</div>
+					<span>Resultados</span>
+				</a>
+			</li>
+
+			
+			<li >
+				<a class="menu-item" href="../raspadinha">
+					<div class="icon hotnew">
+						<img src="img/new/raspadinh-2.png">
+					</div>
+					<span>Raspadinha</span>
+				</a>
+			</li>
+
+
+			
+			<li  >
+
+
+				<a class="menu-item" href="../bolao">
+					<div class="icon hotnew">
+						<img src="img/new/bolao.png">
+					</div>
+					<span>Bolão</span>
+				</a>
+			</li>
+
+						
+			<li >
+
+
+				<a class="menu-item" href="../roleta">
+					<div class="icon hotnew">
+						<img src="img/new/roleta.png">
+					</div>
+					<span>Roleta</span>
+				</a>
+			</li>
+
+			
+			
+
+			
+
+
+
+			<li >
+				<a class="menu-item" href="../loteria">
+					<div class="icon hotnew">
+						<img src="img/new/loteria_game.png">
+					</div>
+					<span>Mega Online</span>
+				</a>
+			</li>
+
+			
+			<li >
+				<a class="menu-item" href="../sorteio">
+					<div class="icon">
+						<img src="img/new/sorteio.png">
+					</div>
+					<span>Dia da Sorte</span>
+				</a>
+			</li>
+
+			
+
+
+
+
+			<li class="ativo">
+				<a class="menu-item" href="saldo.html">
+					<div class="icon">
+						<img src="img/new/saldo.png">
+					</div>
+					<span>Saque</span>
+				</a>
+			</li>
+
+			
+			<li >
+								<a class="menu-item" target="_blank" href="https://wa.me/5599991013087?text=Ol%C3%A1+meu+email+de+usu%C3%A1rio+%C3%A9%3A+marauto1983%40gmail.com+%0AE+preciso+de+ajuda+no+Mega+F%C3%A1cil.">
+					<div class="icon">
+						<img src="img/new/suporte.png">
+					</div>
+					<span>Suporte</span>
+				</a>
+			</li>
+
+
+			<li class="mobile-item">
+				<a class="menu-item" href="javascript:;">
+					<div class="icon">
+						<i class="fas fa-bars"></i>
+					</div>
+					<span>Ver mais opções</span>
+				</a>
+			</li>
+
+			
+		</ul>
+
+	</div>
+
+	
+			<!--<div class="container">
+			<div class="cardItem aviso-chave mt-3 mb-1">
+				<span style="font-weight: bold;">
+					Atenção cadastre sua chave PIX para poder receber as premiações!
+					<a href="/perfil">Cadastrar</a>
+				</span>
+
+			</div>
+		</div> -->
+	
+			<div class="container">
+			<div class="cardItem aviso-saldo mt-3 mb-1">
+				<span style="font-weight: bold;">
+					Seu saldo está baixo! Deposite saldo em sua conta para poder apostar!
+					<a href="../depositar">Recarregar</a>
+				</span>
+
+			</div>
+		</div>
+	<div class="container mb-5 padding-menu-fix">
+
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 apostas">
+            <div class="cardItem mt-4">
+                <div class=" mb-2">
+                    <h3 class="mb-2 text-gray-500 fz-18"><b>Sacar saldo</b></h3>
+                    <p class="text-gray-300">Realize saques das suas premiações:</p>
+                </div>
+
+                <div class="saldoDisponivelCard">
+
+                <div class="saldoCard saldodepositado">
+                        <h6>Saldo na plataforma:</h6>
+                        <span>R$0,00</span>
+                    </div>
+
+                    <div class="saldoCard saldobonus">
+                        <h6>Saldo bônus:</h6>
+                        <span>R$0,00</span>
+                    </div>
+
+                    <div class="saldoCard saldototal">
+                        <h6>Saldo total:</h6>
+                        <span>R$0,00</span>
+                    </div>
+
+                    <div class="saldoCard saldodisponivel">
+                        <h6>Saldo disponível saque:</h6>
+                        <span>R$0,00</span>
+                    </div>
+
+
+
+
+
+                </div>
+
+                <div class="depositCardBox">
+
+                    <div class="despositChoose">
+
+                        <form class="paymentFields">
+
+                            <div class="dataFields">
+
+
+                                <label>Valor:</label>
+                                <input class="form-control form-control-user mb-3" type="text" id="valor" name="valor" placeholder="40,00">
+
+                                <label>Tipo da chave PIX:</label>
+                                <select id="tipoChave" class="form-control form-control-user mb-3">
+                                    <option value="cpf">CPF/CNPJ</option>
+                                    <option value="email">E-MAIL</option>
+                                    <option value="telefone">TELEFONE</option>
+                                    <option value="aleatoria">ALEATÓRIA</option>
+                                </select>
+
+                                <label>Chave PIX:</label>
+                                <input class="form-control form-control-user mb-3" type="text" id="chavePix" name="chavePix" placeholder="000.000.000.00">
+
+
+                                <button id="confirmDeposit" class="btn btn-primary btn-user btn-block botao_new mt-2" style="display: block;margin: 10px auto;">
+                                    Solicitar saque
+                                </button>
+
+
+                            </div>
+
+                            <div id="loaderPayment" style="display:none;">
+                                <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+                                    <path fill="#EC4E9A" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                                    </path>
+                                </svg>
+                                <span>Processando... aguarde</span>
+                            </div>
+
+                            <div class="gatewayReturn"></div>
+
+                        </form>
+
+
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 apostas">
+            <div class="cardItem mt-4">
+                <div class=" mb-4">
+                    <h3 class="mb-2 text-gray-500 fz-18"><b>Saques</b></h3>
+                    <p class="text-gray-300">Confira seus saques já realizados:</p>
+                </div>
+
+                <div class="jogoCriados">
+
+                                            <p class="text-gray-300">Nenhum saque realizado</p>
+                    
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+</div>
+<!-- Scroll to Top Button
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>-->
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Deseja mesmo sair?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Selecione "Sair" abaixo para encerrar a atual sessão.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                <a class="btn btn-primary" href="../logout.php">Sair</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="../cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="../cdn.datatables.net/plug-ins/1.10.19/sorting/date-de.js"></script>
+<script src="../cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript" src="../cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+
+<script src="js/new.js@v=122"></script>
+<script src="js/spin-wheel-iife.js"></script>
+
+
+    <style>
+        .swal2-image {
+            width: 100% !important;
+            height: auto !important;
+            object-fit: contain !important;
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+            border-radius: 5px 5px 0px 0px !important;
+        }
+    </style>
+    <script>
+        Swal.fire({
+            imageUrl: 'https://i.imgur.com/JtpfwXd.png_d.webp?maxwidth=640&shape=thumb&fidelity=medium',
+            showConfirmButton: true,
+            confirmButtonText: "RECARREGAR AGORA!",
+            showCancelButton: true,
+            cancelButtonText: "AGORA NÃO"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location.href = '/depositar';
+            }
+        });
+    </script>
+
+
+<script>
+            updateSaldo();
+    
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/serviceWorker.js")
+            .then(registration => {
+                console.log("Service Worker is registered", registration);
+            })
+            .catch(err => {
+                console.error("Registration failed:", err);
+            });
+    });
+</script>
+
+<style>
+    .install-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0.95;
+        padding: 20px 0;
+        box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        text-align: center;
+    }
+
+    .install-bar h3,
+    .install-bar p {
+        margin: 5px 0;
+        color: white;
+    }
+
+    .install-button {
+        padding: 10px 20px;
+        color: white;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .close-button-bar {
+        color: white;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+    }
+
+    .install-bar ol {
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .install-bar ol li {
+        margin: 10px 0;
+    }
+
+
+    .install-bar ol li {
+        margin: 10px 0;
+    }
+
+    .install-bar ol {
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 18px;
+        width: 85%;
+    }
+
+    .install-bar ol li img {
+        width: 100%;
+        max-width: 60px;
+        display: block;
+        margin: 8px auto;
+        border-radius: 50px;
+    }
+</style>
+
+<script>
+    const COOKIE_NAME = 'installPromptDismissed3';
+
+
+
+
+
+    const DAYS_TO_EXPIRE = 5;
+
+    function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        const expires = 'expires=' + d.toUTCString();
+        document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+    }
+
+    function getCookie(cname) {
+        const name = cname + '=';
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const cookieArray = decodedCookie.split(';');
+        for (let i = 0; i < cookieArray.length; i++) {
+            let cookie = cookieArray[i];
+            while (cookie.charAt(0) === ' ') {
+                cookie = cookie.substring(1);
+            }
+            if (cookie.indexOf(name) === 0) {
+                return cookie.substring(name.length, cookie.length);
+            }
+        }
+        return '';
+    }
+
+    function checkAndShowInstallPrompt() {
+        const alreadyDismissed = getCookie(COOKIE_NAME);
+        if (alreadyDismissed === '' && !window.matchMedia('(display-mode: standalone)').matches) {
+
+
+            let deferredPrompt;
+
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isiOS = /iphone|ipad|ipod/.test(userAgent);
+
+            if (isiOS) {
+                const installBar = document.createElement('div');
+                installBar.classList.add('install-bar');
+                installBar.innerHTML = `
+                        <button class="close-button-bar">&times;</button>
+                        <h3>Instale nosso app!</h3>
+                        <p>Para uma experiência mais rápida e fácil! <br> Para instalar o aplicativo em sua tela inicial:</p>
+                        <ol>
+                            <li>Toque no ícone de compartilhamento do seu navegador.
+                            <img src="img/icons/ios-share.jpg">
+                            </li>
+                            <li>Toque em "Adicionar à Tela de ínicio".</li>
+                        </ol>
+
+                        <button class="install-button" style="display:none;">Instalar o App</button>
+
+                    `;
+
+                if ($(".install-bar").length <= 0) {
+                    document.body.appendChild(installBar);
+                }
+
+                const closeButton = document.querySelector('.close-button-bar');
+
+                closeButton.addEventListener('click', () => {
+                    installBar.style.display = 'none';
+                    setCookie(COOKIE_NAME, 'dismissed', DAYS_TO_EXPIRE);
+                });
+            } else if ('serviceWorker' in navigator && 'PushManager' in window) {
+                window.addEventListener('beforeinstallprompt', (e) => {
+                    e.preventDefault();
+                    deferredPrompt = e;
+
+                    const installBar = document.createElement('div');
+                    installBar.classList.add('install-bar');
+                    installBar.innerHTML = `
+                        <button class="close-button-bar">&times;</button>
+                        <h3>Instale nosso app!</h3>
+                        <p>Para uma experiência mais rápida e fácil!</p>
+                        <button class="install-button">Instalar o App</button>
+                    `;
+
+                    if ($(".install-bar").length <= 0) {
+                        document.body.appendChild(installBar);
+                    }
+
+                    const installButton = document.querySelector('.install-button');
+                    const closeButton = document.querySelector('.close-button-bar');
+
+                    installButton.addEventListener('click', () => {
+                        deferredPrompt.prompt();
+                        deferredPrompt.userChoice.then(choiceResult => {
+                            if (choiceResult.outcome === 'accepted') {
+                                console.log('App installed');
+                            } else {
+                                console.log('App installation declined');
+                            }
+                            installBar.style.display = 'none';
+                        });
+                    });
+
+                    closeButton.addEventListener('click', () => {
+                        installBar.style.display = 'none';
+                        setCookie(COOKIE_NAME, 'dismissed', DAYS_TO_EXPIRE);
+                    });
+                });
+            }
+
+        }
+    }
+
+
+
+    // Verifica se o aplicativo já foi instalado anteriormente ou se a barra foi fechada recentemente
+    window.addEventListener('load', checkAndShowInstallPrompt);
+</script>
+
+<!-- <div style="display: none!important;">
+
+    <script id="_wause2">
+        var _wau = _wau || [];
+        _wau.push(["small", "y7seny3inw", "se2"]);
+    </script>
+    <script async src="//waust.at/s.js"></script>
+</div> -->
+
+</body>
+
+</html><script src="js/jquery.mask.min.js"></script>
+<script src="../cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+
+<script type="text/javascript">
+    $('#valor').mask('#.##0,00', {
+        reverse: true
+    });
+
+
+    function copiarTexto(texto) {
+        const el = document.createElement('textarea');
+        el.value = texto;
+        el.setAttribute('readonly', '');
+        el.style.position = 'absolute';
+        el.style.left = '-9999px';
+        document.body.appendChild(el);
+
+        const selecionado =
+            document.getSelection().rangeCount > 0 ? document.getSelection().getRangeAt(0) : false;
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+
+        if (selecionado) {
+            document.getSelection().removeAllRanges();
+            document.getSelection().addRange(selecionado);
+        }
+    }
+
+
+    /**
+        function copiarTexto(texto) {
+            var x = document.createElement("input");
+            x.setAttribute("type", "text");
+            x.setAttribute("style", "width: 11px;height: 1px;");
+            x.setAttribute("value", texto);
+            x.setAttribute("id", 'tempCopy');
+
+            document.body.appendChild(x);
+            $("#tempCopy").select();
+            document.execCommand("copy");
+            $("#tempCopy").remove();
+        }**/
+
+    function converterParaFloat(valorFormatado) {
+        const valorSemPontoMilhar = valorFormatado.replace(/\./g, '').replace(',', '.');
+        const valorFloat = parseFloat(valorSemPontoMilhar);
+        return valorFloat;
+    }
+
+
+    $("#confirmDeposit").click(function(e) {
+        e.preventDefault();
+        var valido = true;
+
+        if ($("#valor").val() == "") {
+            valido = false;
+            Swal.fire({
+                title: "Erro",
+                text: "O valor não pode ser menor que R$40,00. Modifique e tente novamente",
+                icon: "error"
+            });
+            return;
+        }
+
+        var valor = converterParaFloat($("#valor").val());
+        var tipoChave = $("#tipoChave").val();
+        var chavePix = $("#chavePix").val();
+
+        if (valor < 40) {
+            valido = false;
+            Swal.fire({
+                title: "Erro",
+                text: "O valor não pode ser menor que R$40,00. Modifique e tente novamente",
+                icon: "error"
+            });
+            return;
+        }
+
+
+    
+
+        if (valido) {
+
+            $.ajax({
+                type: 'POST',
+                url: '/db/realizarSaque.php',
+                dataType: 'json',
+                data: {
+                    valor: valor,
+                    tipoChave: tipoChave,
+                    chavePix: chavePix
+                },
+                beforeSend: function() {
+                    $(".dataFields").slideUp();
+                    $("#loaderPayment").slideDown();
+                },
+                success: function(response) {
+                    console.log(response);
+
+                    if (response.codigo == 1) {
+                        $("#loaderPayment").slideUp();
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Sucesso...',
+                            text: "Saque realizado com sucesso!"
+                        })
+
+                        setTimeout(function(){
+                            location.reload(true);
+                        },3000)
+
+                    } else {
+                        $("#loaderPayment").slideUp();
+                        $(".dataFields").slideDown();
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: response.mensagem
+                        })
+                    }
+
+
+                }
+            });
+        }
+
+        return false;
+    })
+</script>
