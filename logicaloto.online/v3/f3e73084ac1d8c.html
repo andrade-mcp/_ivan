@@ -471,7 +471,20 @@ text-align: center;
 </style>
 <div class="subheadline-AFbBIo0315279-element subheadline">
 <h2>
-<span class="xl"></span> pessoas estão assistindo em tempo real junto com você
+  <span class=xl id="counter">1</span> pessoas estão assistindo em tempo real junto com você
+</h2>
+<script>
+  var counter = 0;
+var i = setInterval(function(){
+
+document.getElementById('counter').innerHTML = counter;
+counter = counter + Math.round( Math.random() * 20 )
+      
+if(counter === 10) {
+  clearInterval(i);
+}
+}, 2000);
+</script>
 </h2>
 </div>
 </div>
