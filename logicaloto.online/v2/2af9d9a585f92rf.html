@@ -27,12 +27,58 @@
 <script src="https://pepper.com.br/oneclick.js"></script>
 </head>
 <body id="_UJLyLerS3vdOCIDbOaINRfTWBB62" data-page="_f5MPBVZnLRZde99nsF6r">
-<style>
-.QAseCx9280027 {display: none}
-@media (max-width: 640px) {
-html {overflow-x:hidden}
-}
+  <style>
+    .esconder {display: none}
+    @media (max-width: 640px) {
+    html {overflow-x:hidden}
+    }
 </style>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+  
+  var SECONDS_TO_DISPLAY = 430;
+  var CLASS_TO_DISPLAY = ".esconder";
+  
+  var attempts = 0;
+  var elsHiddenList = [];
+  var elsDisplayed = false;
+  var elsHidden = document.querySelectorAll(CLASS_TO_DISPLAY);
+  var alreadyDisplayedKey = "alreadyElsDisplayed" + SECONDS_TO_DISPLAY;
+  var alreadyElsDisplayed = null;
+  try {
+      alreadyElsDisplayed = localStorage.getItem(alreadyDisplayedKey);
+  } catch(e) {
+      console.warn('Failed to read data from localStorage: ', e);
+  }
+  setTimeout(function () { elsHiddenList = Array.prototype.slice.call(elsHidden); }, 0);
+  var showHiddenElements = function () {
+  elsDisplayed = true;
+  elsHiddenList.forEach((e) => e.style.display = "block");
+  try {
+    localStorage.setItem(alreadyDisplayedKey, true);
+  } catch (e) {
+    console.warn('Failed to save data in localStorage: ', e);
+  }
+  }
+  var startWatchVideoProgress = function () {
+  if (typeof smartplayer === 'undefined' || !(smartplayer.instances && smartplayer.instances.length)) {
+  if (attempts >= 10) return;
+  attempts += 1;
+  return setTimeout(function () { startWatchVideoProgress() }, 1000);
+  }
+  smartplayer.instances[0].on('timeupdate', () => {
+  if (elsDisplayed || smartplayer.instances[0].smartAutoPlay) return;
+  if (smartplayer.instances[0].video.currentTime < SECONDS_TO_DISPLAY) return;
+  showHiddenElements();
+  })
+  }
+  if (alreadyElsDisplayed === 'true') {
+  setTimeout(function () { showHiddenElements(); }, 100);
+  } else {
+  startWatchVideoProgress()
+  }
+  });
+</script>
 <style>.pulsing { animation-name: pulsing; animation-duration: 1s; animation-timing-function: ease-out; animation-iteration-count: infinite; } @keyframes pulsing { 0% { box-shadow: 0 0 0 0 undefinede1 } 80% { box-shadow: 0 0 0 12px #00ff1700 } }</style>
 <script src="https://pepper.com.br/oneclick.js"></script>
 <div class="division-hXajGJ0370672__wrapper">
@@ -237,7 +283,7 @@ padding: 1.5vh 4.5vw 6vh 4.5vw;
 }
 }
 </style>
-<div id="division-XEehji0658003" class="LozPeq9270504 grid grid-cols-1 sm:grid-cols-1 items-center gap-2 sm:gap-2 QAseCx9280027">
+<div id="division-XEehji0658003" class="LozPeq9270504 grid grid-cols-1 sm:grid-cols-1 items-center gap-2 sm:gap-2 esconder">
 <div class="container-PbYbHi0291577">
 <style>
 .justify-center {
@@ -274,7 +320,7 @@ padding: 1.5vh 1.5vw 1.5vh 1.5vw;
 }
 </style>
 <div class="container-PbYbHi0291577-element">
-<div class="button-Xzqkct0291577 QAseCx9280027">
+<div class="button-Xzqkct0291577 esconder">
 <style>
 .pulsing_Xzqkct0291577 {
 animation-name: pulsing_Xzqkct0291577;
@@ -547,7 +593,6 @@ src="https://www.facebook.com/tr?id=355125173897430&ev=PageView&noscript=1"
     }
   }
 </script>
-<script src="./js/QAseCx9280027.js" charset="utf-8"></script>
 <script>document.addEventListener("DOMContentLoaded",(()=>{document.querySelectorAll("a").forEach((e=>{e.getAttribute("href")?.includes("#")||(e.getAttribute("href")?.includes("?")?e.setAttribute("href",e.getAttribute("href")+window.location.search.replace("?","&")):e.getAttribute("href")?e.setAttribute("href",e.getAttribute("href")+window.location.search):"")}))}));</script>
 <script type="text/javascript">document.head.appendChild(Object.assign(document.createElement("script"), {src: "./js/a.js?cache=" + Math.floor((Math.random() * 100000)),async: true}));</script>
 </body>
